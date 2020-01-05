@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'demo/listview.dart';
+import 'demo/drawer_demo.dart';
+import 'demo/bottomNavigationBar_demo.dart';
 
 main() => runApp(APP());
 
@@ -10,8 +11,8 @@ class APP extends StatelessWidget {
     return MaterialApp(
       home: Home(),
       theme: ThemeData(
-        primaryColor: Colors.green,
-        highlightColor: Color.fromRGBO(255, 255, 255, 0.5), 
+        primaryColor: Colors.deepPurple,
+        highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
         splashColor: Colors.red[300], // 水波纹
       ),
     );
@@ -29,11 +30,7 @@ class Home extends StatelessWidget {
         appBar: AppBar(
           title: Text('Hello Flutter!'),
           elevation: 10, // 阴影
-          leading: IconButton(
-            icon: Icon(Icons.menu),
-            tooltip: "Menu",
-            onPressed: () => debugPrint("Menu button is on pressed."),
-          ),
+          leading: null,
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.search),
@@ -55,7 +52,6 @@ class Home extends StatelessWidget {
               Tab(icon: Icon(Icons.local_florist)),
               Tab(icon: Icon(Icons.change_history)),
               Tab(icon: Icon(Icons.directions_bike)),
-              
             ],
           ),
         ),
@@ -65,8 +61,10 @@ class Home extends StatelessWidget {
             Icon(Icons.change_history, size: 128.0, color: Colors.black12),
             Icon(Icons.directions_bike, size: 128.0, color: Colors.black12),
           ],
-        )),
-      )
-    ;
+        ),
+        drawer: DrawerDemo(),
+        bottomNavigationBar: BottomNavigationBarDemo(),
+      ),
+    );
   }
 }
