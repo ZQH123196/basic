@@ -1,5 +1,6 @@
 import 'dart:collection';
 
+
 main(List<String> args) {
     List<String> grid = [
         "+++++++++++++++",
@@ -17,11 +18,18 @@ main(List<String> args) {
     List start = result['start'];
     List end = result['end'];
 
-    bfs(start, grid);
+    // bfs(start, grid);
 
+    var t1 = [1, 2];
+    var t2 = [3, 4];
+    var m1 = {t1: t2};
+    print(m1[[1, 2]]);
+    print(m1[t1]);
+
+    
 
 }
-// todo key 值全部 toString
+
 void bfs(List start, List<String> grid) {
     // [row, col]
     var direction = [
@@ -33,7 +41,7 @@ void bfs(List start, List<String> grid) {
     Map<String, String> related = {};
     List<String> visited = [];
     List endPoint = null;
-
+    
     queue.add(start);
     visited.add(start.toString());
     while (queue.length > 0 && endPoint == null) {
