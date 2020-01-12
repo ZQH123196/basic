@@ -3,7 +3,7 @@ void main(List<String> args) {
   print(1 is! String);
 
   // 常量
-  var t = const [1, 2];
+  dynamic t = const [1, 2];
   print(t == const [1, 2,]);
   print(const [1, 2,] == const [1, 2,]);
 
@@ -13,8 +13,8 @@ void main(List<String> args) {
 
 
 
-  print(Point().x == null);
-  print(Point.name1().x == 1);
+  print(Point(null, null).x == null);
+  print(Point.name1(1, 1).x == 1);
   print(Point.name2().x == 2);
 
   // dynamic 判断类型
@@ -62,6 +62,20 @@ void main(List<String> args) {
 
   print(doStuff(list: [10086])[0] == 10086);
   print(doStuff(gifts: {"gg": "gg"})["gg"] == "gg");
+
+  print("返回同一个实例");
+  var logger = new Logger('UI');
+  var logger2 = new Logger("UI");
+  print("logger == logger2 :==> ${logger == logger2}");
+ 
+  print("返回新实例");
+  var logger3 = new Logger("newUI");
+  print("logger == logger3 :==> ${logger == logger3}");
+
+  t = varAdmitControl();
+  t.x = 10086;
+  print(t.x);
+
 }
 
 // 默认变量值必须设置在 {} 或 []
@@ -93,22 +107,27 @@ dynamic doStuff(
 class Point {
   num x, y;
 
-  Point();
+  Point(this.x, this.y);
 
   // Named constructor
-  Point.name1() {
-    x = 1;
-    y = 1;
-  }
+  // 类属性自动初始化语法糖
+  Point.name1(this.x, this.y) {}
 
   Point.name2() {
     x = 2;
     y = 2;
   }
+
+  Point.name3(num x) : this(x, null);
+
 }
 
 class varAdmitControl {
+   int some = 0;
   int get readOnly => 1;
+  int get x => some;
+  set x(int v) => some = v;
+  varAdmitControl();
 }
 
 /// 作为入参不错，可以判断入参类型
@@ -116,3 +135,33 @@ bool isBool(dynamic arg) {
   if (arg is bool) return true;
   return false;
 }
+
+class Logger {
+  final String name;
+  bool mute = false;
+  static final Map<String, Logger> _cache = <String, Logger>{};
+ 
+  // 工厂构造函数，如果Logger存在name值相同的记录，则在new 一个Logger时候返回原对象 （原理: 工厂构造函数可以缓存实例）
+  factory Logger(String name){
+    if (_cache.containsKey(name)){
+      return _cache[name];
+    }else{
+      final logger = new Logger._internal(name);
+      _cache[name] = logger;
+      return logger;
+    }
+  }
+  
+  // 给name赋值
+  Logger._internal(this.name);
+ 
+  // 里面的方法
+  void log(String msg) {
+    if (!mute) {
+      print(msg);
+    }
+  }
+}
+ 
+
+
