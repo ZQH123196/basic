@@ -4,14 +4,23 @@ void main(List<String> args) {
 
   // 常量
   dynamic t = const [1, 2];
-  print(t == const [1, 2,]);
-  print(const [1, 2,] == const [1, 2,]);
+  print(t ==
+      const [
+        1,
+        2,
+      ]);
+  print(const [
+        1,
+        2,
+      ] ==
+      const [
+        1,
+        2,
+      ]);
 
   var tt = const {'first': 'first'};
   print(tt == const {'first': 'first'});
   print(const {'first': 'first'} == const {'first': 'first'});
-
-
 
   print(Point(null, null).x == null);
   print(Point.name1(1, 1).x == 1);
@@ -67,7 +76,7 @@ void main(List<String> args) {
   var logger = new Logger('UI');
   var logger2 = new Logger("UI");
   print("logger == logger2 :==> ${logger == logger2}");
- 
+
   print("返回新实例");
   var logger3 = new Logger("newUI");
   print("logger == logger3 :==> ${logger == logger3}");
@@ -76,6 +85,23 @@ void main(List<String> args) {
   t.x = 10086;
   print(t.x);
 
+  final v = Vector(2, 3);
+  final w = Vector(2, 2);
+
+  print(v + w == Vector(4, 5));
+  print(v - w == Vector(0, 1));
+  print(Vector(1, 2) == Vector(1, 2));
+  print(Vector(1, 2).hashCode == Vector(1, 2).hashCode);
+
+  
+ 
+}
+
+class Todo {
+  final String who;
+  final String what;
+
+  const Todo(this.who, this.what);
 }
 
 // 默认变量值必须设置在 {} 或 []
@@ -103,7 +129,6 @@ dynamic doStuff(
   return false;
 }
 
-
 class Point {
   num x, y;
 
@@ -119,11 +144,10 @@ class Point {
   }
 
   Point.name3(num x) : this(x, null);
-
 }
 
 class varAdmitControl {
-   int some = 0;
+  int some = 0;
   int get readOnly => 1;
   int get x => some;
   set x(int v) => some = v;
@@ -140,21 +164,21 @@ class Logger {
   final String name;
   bool mute = false;
   static final Map<String, Logger> _cache = <String, Logger>{};
- 
+
   // 工厂构造函数，如果Logger存在name值相同的记录，则在new 一个Logger时候返回原对象 （原理: 工厂构造函数可以缓存实例）
-  factory Logger(String name){
-    if (_cache.containsKey(name)){
+  factory Logger(String name) {
+    if (_cache.containsKey(name)) {
       return _cache[name];
-    }else{
+    } else {
       final logger = new Logger._internal(name);
       _cache[name] = logger;
       return logger;
     }
   }
-  
+
   // 给name赋值
   Logger._internal(this.name);
- 
+
   // 里面的方法
   void log(String msg) {
     if (!mute) {
@@ -162,6 +186,30 @@ class Logger {
     }
   }
 }
- 
 
+class Vector {
+  final int x, y;
 
+  Vector(this.x, this.y);
+  // 重载 == 号还需要重载 hashcode
+  Vector operator +(Vector rightV) => Vector(x + rightV.x, y + rightV.y);
+  Vector operator -(Vector rightV) => Vector(x - rightV.x, y - rightV.y);
+
+  // Override hashCode using strategy from Effective Java,
+  // Chapter 11.
+  @override
+  int get hashCode {
+    int result = 17;
+    result = 37 * result + this.x.hashCode;
+    result = 37 * result + this.y.hashCode;
+    return result;
+  }
+
+  // You should generally implement operator == if you
+  // override hashCode.
+  @override
+  bool operator ==(dynamic other) {
+    if (other is! Vector) return false;
+    return (other.x == this.x && other.y == this.y);
+  }
+}
