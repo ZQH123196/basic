@@ -92,9 +92,6 @@ void main(List<String> args) {
   print(v - w == Vector(0, 1));
   print(Vector(1, 2) == Vector(1, 2));
   print(Vector(1, 2).hashCode == Vector(1, 2).hashCode);
-
-  
- 
 }
 
 class Todo {
@@ -128,7 +125,7 @@ dynamic doStuff(
   if (gifts != const {'first': 'first'}) return gifts;
   return false;
 }
- 
+
 class Point {
   num x, y;
 
