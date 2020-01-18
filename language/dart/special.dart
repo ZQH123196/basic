@@ -1,3 +1,7 @@
+// TODO https://dart.dev/guides/language/language-tour#functions
+// dart 中的 => expr语法是对{ return expr; }的简写，并非真正的函数。
+// 所以 => 并不等同于我们所说的箭头表达式，只是对返回值的语法塘。方法体只包含一个表达式时，可以使用箭头表达式方法进行简写。
+// 因此 JS 中可以用 => 当作匿名函数，而 dart 不能用 => 要用 (){} 才能作为匿名函数
 void main(List<String> args) {
   // is!
   print(1 is! String);
@@ -92,6 +96,16 @@ void main(List<String> args) {
   print(v - w == Vector(0, 1));
   print(Vector(1, 2) == Vector(1, 2));
   print(Vector(1, 2).hashCode == Vector(1, 2).hashCode);
+
+  // 级联表达式（..）允许你在同一个对象上连续使用操作符。
+  var sortedColors = ['red', 'green', 'orange', 'blue', 'black', 'pink'].sublist(1, 4).sort();
+  // print(sortedColors); // 报错找不到
+  var colors = ['red', 'green', 'orange', 'blue', 'black', 'pink'].sublist(1, 4);
+  colors.sort();
+  print(colors); // 这样就可以
+  // 注意双点，在这里级联用的是已经构造完毕的对象了，相当于在双点之前的已经运行了，自己的级联相当于另起一行，跟 i++ 这种会展开很多行的语法糖类似。
+  var sortedColors1 = ['red', 'green', 'orange', 'blue', 'black', 'pink'].sublist(1, 4)..sort();
+  print(sortedColors1); // 级联最方便
 }
 
 class Todo {
