@@ -97,7 +97,7 @@ void main(List<String> args) {
   print(Vector(1, 2) == Vector(1, 2));
   print(Vector(1, 2).hashCode == Vector(1, 2).hashCode);
 
-  // 级联表达式（..）允许你在同一个对象上连续使用操作符。
+  // 级联表达式（..）允许你在同一个对象上连续使用操作符。".."语法调用一个方法（getter或setter）并丢弃它的返回值，同时返回级联操作符最初的接收者。s
   var sortedColors = ['red', 'green', 'orange', 'blue', 'black', 'pink'].sublist(1, 4).sort();
   // print(sortedColors); // 报错找不到
   var colors = ['red', 'green', 'orange', 'blue', 'black', 'pink'].sublist(1, 4);
