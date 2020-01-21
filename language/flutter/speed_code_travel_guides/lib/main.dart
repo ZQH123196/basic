@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 1.5),
             ),
           ),
-          Expanded(
+          Expanded( 
             child: PageViewWidget(),
           )
         ],
