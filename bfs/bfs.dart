@@ -1,5 +1,4 @@
 import 'dart:collection';
-// TODO: 简化
 
 main(List<String> args) {
     List<String> grid = [
