@@ -106,24 +106,25 @@ class _PageViewWidgetState extends State<PageViewWidget> {
       controller: pageController,
       itemCount: urlsOfImage.length,
       itemBuilder: (context, index) {
+        // 报 The method '-' was called on null. 错误，只是 flutter 的问题，尝试重启，代码绝对能运行
         // 当 pageOffset-index > 1 时，( 1 - (pageOffset-index).abs()) 必定为负数，因此必定取值 viewportFraction。
         // 由此就得到效果，当前页面 pageOffset 的 scale 为 1.8,其他页面的比例为 viewportFraction。
-        double scale = max(viewportFraction,
-            (1 - (pageOffset - index).abs()) + viewportFraction);
+        double scale = max(viewportFraction, (1-(pageOffset-index).abs()) + viewportFraction);
 
-        double angle = (pageOffset - index).abs();
+        double angle = (pageOffset-index).abs();
 
         if (angle > 0.5) {
-          angle = 1 - angle;
+          angle = 1-angle;
         }
         return Container(
           padding: EdgeInsets.only(
             right: 10,
             left: 20,
             // scale 会影响 padding top 的取值，scale 越大 top 越小，图片也就自动拉高了。
-            top: 100 - (scale * 25),
+            top: 100-(scale * 25),
             bottom: 50,
           ),
+          // child: Text("data"),
           child: Transform(
               transform: Matrix4.identity()
                 ..setEntry(
