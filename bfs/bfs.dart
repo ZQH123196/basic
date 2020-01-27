@@ -82,7 +82,7 @@ void bfs(List start, List<String> grid) {
     nowPoint = related[nowPoint].toString();
     print(nowPoint);
 }
-
+// 
 Map searchForStartAndEnd(List<String> grid) {
     Map result = {};
     for (var row = 0; row < grid.length; row++) {
