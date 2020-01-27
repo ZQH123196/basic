@@ -106,7 +106,7 @@ class _PageViewWidgetState extends State<PageViewWidget> {
       controller: pageController,
       itemCount: urlsOfImage.length,
       itemBuilder: (context, index) {
-        // 报 The method '-' was called on null. 错误，只是 flutter 的问题，尝试重启，代码绝对能运行
+        // 报 The method '-' was called on null. 错误，只是 flutter 的问题，尝试重启，代码绝对能运行。
         // 当 pageOffset-index > 1 时，( 1 - (pageOffset-index).abs()) 必定为负数，因此必定取值 viewportFraction。
         // 由此就得到效果，当前页面 pageOffset 的 scale 为 1.8,其他页面的比例为 viewportFraction。
         double scale = max(viewportFraction, (1-(pageOffset-index).abs()) + viewportFraction);
