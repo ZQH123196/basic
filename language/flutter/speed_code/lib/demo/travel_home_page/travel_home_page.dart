@@ -1,28 +1,20 @@
-import 'dart:math';
+/*
+相关视频：https://www.bilibili.com/video/av75494009
+相关代码：https://github.com/jiang111/flutter_code
+ */
 
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+import 'dart:math';
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class Travel_home extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MyHomePage(),
-    );
-  }
+  _Travel_homeState createState() => _Travel_homeState();
 }
 
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class _Travel_homeState extends State<Travel_home> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -30,7 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.only(
-                // const kToolbarHeight = 56.0，这常量应该高亮才对，或许以后会支持吧。
+              // const kToolbarHeight = 56.0，这常量应该高亮才对，或许以后会支持吧。
                 top: MediaQuery.of(context).padding.top + kToolbarHeight,
                 left: 40),
             child: Text(
@@ -42,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 1.5),
             ),
           ),
-          Expanded( 
+          Expanded(
             child: PageViewWidget(),
           )
         ],
@@ -86,18 +78,17 @@ class _PageViewWidgetState extends State<PageViewWidget> {
 
   PageController pageController;
   double viewportFraction = 0.8;
-  double pageOffset;
+  double pageOffset = 0; // 当前页面的相对偏移值
 
   @override
   void initState() {
     super.initState();
-    pageController =
-        PageController(initialPage: 0, viewportFraction: viewportFraction)
-          ..addListener(() {
-            setState(() {
-              pageOffset = pageController.page;
-            });
-          });
+    pageController = PageController(initialPage: 0, viewportFraction: viewportFraction);
+    pageController.addListener( () {
+      setState(() {
+        pageOffset = pageController.page;
+      });
+    });
   }
 
   @override
@@ -106,10 +97,11 @@ class _PageViewWidgetState extends State<PageViewWidget> {
       controller: pageController,
       itemCount: urlsOfImage.length,
       itemBuilder: (context, index) {
-        // 报 The method '-' was called on null. 错误，只是 flutter 的问题，尝试重启，代码绝对能运行。
+        // 报 The method '-' was called on null. 错误，只是 flutter 的问题，尝试重启，代码绝对能运行，尝试动一下。
         // 当 pageOffset-index > 1 时，( 1 - (pageOffset-index).abs()) 必定为负数，因此必定取值 viewportFraction。
         // 由此就得到效果，当前页面 pageOffset 的 scale 为 1.8,其他页面的比例为 viewportFraction。
         double scale = max(viewportFraction, (1-(pageOffset-index).abs()) + viewportFraction);
+//        print("scale=[$scale],viewportFraction=[$viewportFraction],pageOffset=[$pageOffset],index=[$index]");
 
         double angle = (pageOffset-index).abs();
 
@@ -133,11 +125,34 @@ class _PageViewWidgetState extends State<PageViewWidget> {
                   0.001,
                 )
                 ..rotateY(angle),
-                // alignment: Alignment.center,
-              child: Image.asset(
-                urlsOfImage[index].url,
-                width: MediaQuery.of(context).size.width,
-                fit: BoxFit.cover,
+              // alignment: Alignment.center,
+              child: Stack(
+                children: <Widget>[
+                  Image.asset(
+                    urlsOfImage[index].url,
+                    width: MediaQuery.of(context).size.width,
+                    fit: BoxFit.cover,
+                  ),
+                  Positioned(
+                    bottom: 30,
+                    left: 20,
+                    child: AnimatedOpacity( // 文字隐藏效果
+                      opacity: angle == 0 ? 1 : 0,
+                      duration: Duration(
+                        milliseconds: 200,
+                      ),
+                      child: Text(
+                        urlsOfImage[index].name,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.2,
+                        ),
+                      ),
+                    ),
+                  )
+                ],
               )),
         );
       },
@@ -152,12 +167,13 @@ class UrlsOfImage {
   UrlsOfImage(this.url, this.name);
 
   static List<UrlsOfImage> build() {
+    final String parentPath = 'lib/demo/travel_home_page';
     return [
-      UrlsOfImage("assets/images/1.jpg", "Japan"),
-      UrlsOfImage("assets/images/2.jpg", "Franch"),
-      UrlsOfImage("assets/images/3.jpg", "Paris"),
-      UrlsOfImage("assets/images/4.jpg", "London"),
-      UrlsOfImage("assets/images/5.jpg", "China"),
+      UrlsOfImage("$parentPath/assets/images/1.jpg", "Japan"),
+      UrlsOfImage("$parentPath/assets/images/2.jpg", "Franch"),
+      UrlsOfImage("$parentPath/assets/images/3.jpg", "Paris"),
+      UrlsOfImage("$parentPath/assets/images/4.jpg", "London"),
+      UrlsOfImage("$parentPath/assets/images/5.jpg", "China"),
     ];
   }
 }
