@@ -1,6 +1,8 @@
 /*
 相关视频：https://www.bilibili.com/video/av55251444/?spm_id_from=333.788.videocard.11
+相关视频：https://www.youtube.com/watch?v=ERUvJbtaGMI
 相关代码：https://github.com/lohanidamodar/flutter_ui_challenges/blob/master/lib/src/pages/profile/profile4.dart
+相关截图：https://github.com/lohanidamodar/flutter_ui_challenges#profile-screens
  */
 import 'package:flutter/material.dart';
 
@@ -22,16 +24,31 @@ class ProfileFourPage extends StatelessWidget {
             Row(
               children: <Widget>[
                 Container(
+                  color: Colors.blueGrey,
                   width: 80.0,
+                  height: 80.0,
                   child: Image.asset("lib/demo/travel_home_page/assets/images/1.jpg"),),
                 SizedBox(width: 20.0,),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-
                   children: <Widget>[
-                    Text("阿斯顿马丁"),
+                    Text("阿斯顿马丁", style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold
+                    ),),
                     Text("骑士"),
-                    Text("喜欢呼吸空气"),
+                    Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.favorite,
+                          color: Colors.grey
+                        ),
+                        Text(
+                          "喜欢呼吸空气",
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      ],
+                    ),
                   ],
 
                 )
