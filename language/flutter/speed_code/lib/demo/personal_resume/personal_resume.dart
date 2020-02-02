@@ -31,7 +31,7 @@ class ProfileFourPage extends StatelessWidget {
                 SizedBox(width: 20.0,),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
+                  children: <Widget>[ 
                     Text("阿斯顿马丁", style: TextStyle(
                       fontSize: 18.0,
                       fontWeight: FontWeight.bold
