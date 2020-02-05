@@ -30,6 +30,27 @@ def buildMap(mapSize: tuple, ceilSize: int, gap: int = 0):
 def refreshMap():
     pass
 
+import queue
+
+class snake():
+    def __init__(self):
+        self.headerChar = '>'
+        self.bodyChar = '='
+        self.bodySize = 0
+        self.body = self.bodyChar * self.bodySize
+        # 头部始终占一个长度
+        self.snakeLen = 1 + self.bodySize
+        self.XY = [(0, 0)]
+    
+    def suit(self, xy: tuple):
+        if len(self.XY) < self.snakeLen:
+            self.XY.insert(0, xy)
+        # 截断，让 XY 列表的长度始终与 snakeLen 相等
+        if len(self.XY) > self.snakeLen:
+            self.XY = self.XY[: self.snakeLen]
+
+
+
 def snakeRun(canvas):
     header = ">"
     body = "="*3
