@@ -3,6 +3,7 @@
 // 所以 => 并不等同于我们所说的箭头表达式，只是对返回值的语法塘。方法体只包含一个表达式时，可以使用箭头表达式方法进行简写。
 // 因此 JS 中可以用 => 当作匿名函数，而 dart 不能用 => 要用 (){} 才能作为匿名函数
 
+// TODO 初始化检查
 void main(List<String> args) {
   // is!
   print(1 is! String);
@@ -225,3 +226,4 @@ class Vector {
     return (other.x == this.x && other.y == this.y);
   }
 }
+
