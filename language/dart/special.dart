@@ -5,10 +5,11 @@
 
 // TODO 初始化检查
 void main(List<String> args) {
+  
   // is!
   print(1 is! String);
 
-  // 常量
+  // 常量 
   dynamic t = const [1, 2];
   print(t ==
       const [
