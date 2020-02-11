@@ -4,6 +4,7 @@
 // 因此 JS 中可以用 => 当作匿名函数，而 dart 不能用 => 要用 (){} 才能作为匿名函数
 
 // TODO 初始化检查
+
 void main(List<String> args) {
   
   // is!
