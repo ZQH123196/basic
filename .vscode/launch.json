@@ -8,6 +8,12 @@
             "type": "java",
             "name": "CodeLens (Launch) - App",
             "request": "launch",
+            "mainClass": "eor.App"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
             "mainClass": "com.kittycoder.App"
         },
         {
