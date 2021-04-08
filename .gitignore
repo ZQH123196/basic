@@ -154,7 +154,7 @@ dkms.conf
 *.out
 *.app
 
-# for cmake
+# for cmake c++
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles
@@ -166,3 +166,19 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+
+
+
+# npm
+**/front/**/node_modules/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.vscode
+
+

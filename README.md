@@ -6,3 +6,10 @@
 2. 多线程/进程
 3. 设计模式
 4. 数据库
+
+
+
+### npm
+安装：
+npm i --registry https://registry.npm.taobao.org
+> 不要使用 cnpm。
