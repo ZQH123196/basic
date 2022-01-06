@@ -1,0 +1,47 @@
+# frontend
+**/node_modules/
+**/dist/
+CONTRIBUTING.md
+npm-debug.log
+yarn-debug.log*
+yarn-error.log*
+yarn.lock
+package-lock.json
+.vscode
+
+######################################################################
+# Build Tools
+
+.gradle
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+**/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+######################################################################
+# IDE
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+######################################################################
+# Others
+*.log
+*.xml.versionsBackup
+*.swp
+
+!*/build/*.java
+!*/build/*.html
+!*/build/*.xml
