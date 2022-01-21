@@ -45,3 +45,7 @@ package-lock.json
 !*/build/*.java
 !*/build/*.html
 !*/build/*.xml
+
+
+## database
+**/*.db
