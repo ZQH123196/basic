@@ -4,7 +4,7 @@ import SideBarIcon from './components/SideBarIcon.vue';
 
 const className: string = "siderbar-btn"
 
-
+debugger
 
 const Deliver = defineComponent({
     render() {
@@ -17,7 +17,6 @@ const Deliver = defineComponent({
         )
     }
 })
-
 </script>
 
 <template>

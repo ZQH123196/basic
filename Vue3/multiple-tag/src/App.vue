@@ -1,11 +1,9 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import dashboarder from '@/views/dashboarder/dashboarder.vue'
 </script>
 
+// TODO 主题色切换 
 <template>
-  <dashboarder/>
+  <router-view />
 </template>
 
 <style>
@@ -18,3 +16,4 @@ import dashboarder from '@/views/dashboarder/dashboarder.vue'
   margin-top: 60px;
 }
 </style>
+

@@ -1,0 +1,7 @@
+GET /img1.svg HTTP/1.1
+Host: localhost:8999
+
+
+###
+GET /img1-gz.svg HTTP/1.1
+Host: localhost:8999

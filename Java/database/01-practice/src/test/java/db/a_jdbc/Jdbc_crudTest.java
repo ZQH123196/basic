@@ -1,11 +1,13 @@
 package db.a_jdbc;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import db.util_sqlite.SqliteUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.session.TransactionIsolationLevel;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.sqlite.JDBC;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -13,23 +15,25 @@ import java.sql.*;
 @Slf4j
 class Jdbc_crudTest {
     static Connection conn = null;
-    static final String baseDbUrl = "jdbc:sqlite:D:/software/sqlite/";
+    static final String baseDbUrl = JDBC.PREFIX+"D:/software/sqlite/";
     // jdbc:sqlite:D:/software/sqlite/basic_java_database.db
     @BeforeEach
     void setUp() throws SQLException {
 
-        conn = connectDb(baseDbUrl+"basic_java_database.db");
+        conn = SqliteUtils.connectDb(baseDbUrl+"basic_java_database.db");
         conn.setAutoCommit(false);
-        conn.setTransactionIsolation(TransactionIsolationLevel.SERIALIZABLE.getLevel());
+        conn.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
     }
 
     @AfterEach
     void tearDown() throws SQLException {
-        closeConnDb(conn);
+        SqliteUtils.closeConnDb(conn);
     }
 
     @Test
-    void simple() {
+    void simple() throws SQLException {
+        ddl();
+        dql();
     }
 
     @Test
@@ -62,6 +66,8 @@ class Jdbc_crudTest {
                 "    update_time datetime                  null,\n" +
                 "    remark      varchar(500)              null\n" +
                 ")";
+        // true if the first result is a ResultSet object;
+        // false if it is an update count or there are no results
         boolean createRes = statement.execute(sqlCreate);
         conn.commit();
         log.debug("createRes = [{}]", createRes);
@@ -75,16 +81,12 @@ class Jdbc_crudTest {
         ResultSet resultSet = preparedStatement.executeQuery();
         resultSet.next();
         int res = resultSet.getInt(1);
-
         log.debug("res = {}", res);
     }
 
     @Test
     void dml() {
-
     }
-
-
 
     @Test
     void dcl() {
@@ -96,40 +98,5 @@ class Jdbc_crudTest {
 
 
 
-    public static void createNewDatabase(String targetUrl) {
-        String url = targetUrl;
-        try {
-            Connection conn = DriverManager.getConnection(url);
-            if (conn != null) {
-                DatabaseMetaData meta = conn.getMetaData();
-                System.out.println("The driver name is " + meta.getDriverName());
-                System.out.println("A new database has been created.");
-            }
 
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    // sqlite 连接可以自动创建
-    public static Connection connectDb(String targetUrl) {
-        Connection conn = null;
-        String url = targetUrl;
-        try {
-            Class.forName("org.sqlite.JDBC");
-            // create a connection to the database
-            conn = DriverManager.getConnection(url);
-            System.out.println("Connection to SQLite has been established.");
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return conn;
-    }
-
-    public static void closeConnDb(Connection conn) throws SQLException {
-        conn.commit();
-        if (!conn.isClosed()) {
-            conn.close();
-        }
-    }
 }

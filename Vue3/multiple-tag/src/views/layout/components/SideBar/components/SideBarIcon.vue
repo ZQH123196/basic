@@ -16,3 +16,4 @@ const props = defineProps<{
         <div class="siderbar-tooltip group-hover:scale-100">tooltip 💡</div>
     </div>
 </template>
+
