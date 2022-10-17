@@ -1,2 +1,5 @@
-package org.eor.designPattern.ChainOfResponsibility;public class ChainFirst {
+package org.eor.designPattern.chainOfResponsibility;
+
+public class ChainFirst {
+    
 }

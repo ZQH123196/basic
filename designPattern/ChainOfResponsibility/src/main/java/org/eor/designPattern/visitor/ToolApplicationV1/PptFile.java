@@ -1,8 +1,12 @@
 package org.eor.designPattern.visitor.ToolApplicationV1;
 
-public class PdfFile extends ResourceFile {
+public class PptFile extends ResourceFile {
+    public PptFile(String filePath) {
+        super(filePath);
+    }
+
     @Override
-    public String extract2txt(String filePath) {
-        return this.getClass().getName();
+    public String extract2txt() {
+        return "Extract by " + this.getClass().getSimpleName();
     }
 }

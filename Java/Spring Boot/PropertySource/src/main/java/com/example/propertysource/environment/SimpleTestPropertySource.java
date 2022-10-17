@@ -12,7 +12,7 @@ import org.springframework.core.io.Resource;
 import java.io.IOException;
 
 
-public class SimplePropertySource implements EnvironmentPostProcessor {
+public class SimpleTestPropertySource implements EnvironmentPostProcessor {
     private static PropertiesPropertySourceLoader loader = new PropertiesPropertySourceLoader();
 
     @Override
@@ -25,7 +25,7 @@ public class SimplePropertySource implements EnvironmentPostProcessor {
         Resource resource = new ClassPathResource("simple.properties");
         PropertySource propertySource = null;
         try {
-            propertySource = loader.load(SimplePropertySource.class.getSimpleName(), resource).get(0);
+            propertySource = loader.load(SimpleTestPropertySource.class.getSimpleName(), resource).get(0);
             // 放到最后，即可覆盖默认配置
             mutablePropertySources.addLast(propertySource);
         } catch (IOException e) {

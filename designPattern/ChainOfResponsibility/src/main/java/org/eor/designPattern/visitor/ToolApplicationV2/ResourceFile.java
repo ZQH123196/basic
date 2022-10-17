@@ -1,4 +1,4 @@
-package org.eor.designPattern.visitor.ToolApplicationV2.ToolApplicationV1;
+package org.eor.designPattern.visitor.ToolApplicationV2;
 
 public abstract class ResourceFile {
     protected String filePath;
@@ -7,5 +7,4 @@ public abstract class ResourceFile {
         this.filePath = filePath;
     }
 
-    public abstract String extract2txt();
 }

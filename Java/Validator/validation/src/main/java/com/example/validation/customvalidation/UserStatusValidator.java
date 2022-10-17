@@ -10,7 +10,7 @@ import java.util.Set;
  * ConstraintValidator<生效的注解, 生效的目标类型>
  * @author ZQH12
  */
-public class UserStatusValidation implements ConstraintValidator<UserStatus, Integer> {
+public class UserStatusValidator implements ConstraintValidator<UserStatus, Integer> {
     @Override
     public void initialize(UserStatus constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);

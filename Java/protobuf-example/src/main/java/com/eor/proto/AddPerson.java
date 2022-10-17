@@ -1,7 +1,9 @@
-// See README.txt for information and build instructions.
+package com.eor.proto;// See README.txt for information and build instructions.
 
-import com.example.tutorial.protos.AddressBook;
-import com.example.tutorial.protos.Person;
+
+import com.eor.proto.pojo.AddressBook;
+import com.eor.proto.pojo.Person;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

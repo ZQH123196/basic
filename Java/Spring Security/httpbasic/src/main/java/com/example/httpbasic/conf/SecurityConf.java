@@ -1,4 +1,4 @@
-package springsecuritydemo.conf;
+package com.example.httpbasic.conf;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -41,6 +41,14 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
      * @param http
      * @throws Exception
      */
+    /**
+     * HttpBasic模式要求传输的用户名密码使用Base64模式进行加密。如果用户名是 "admin" ，
+     * 密码是“ admin”，则将字符串"admin:admin" 使用Base64编码算法加密。加密结果可能是：
+     * YWtaW46YWRtaW4=。HttpBasic模式真的是非常简单又简陋的验证模式，Base64的加密算法是
+     * 可逆的,想要破解并不难.
+     * @param http
+     * @throws Exception
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 //        super.configure(http); // 父类实现里面有 http basic 验证，不太安全，所以关掉
@@ -57,6 +65,8 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
 //                .authorizeRequests()
 //                .antMatchers("/login").permitAll()
 //                .anyRequest().authenticated();
+
+        http.authorizeRequests().antMatchers().hasRole("ADMIN");
 
 
         http

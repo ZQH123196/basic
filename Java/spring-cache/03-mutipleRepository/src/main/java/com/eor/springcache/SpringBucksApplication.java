@@ -1,9 +1,9 @@
-package geektime.spring.springbucks;
+package com.eor.springcache;
 
-import geektime.spring.springbucks.converter.BytesToMoneyConverter;
-import geektime.spring.springbucks.converter.MoneyToBytesConverter;
-import geektime.spring.springbucks.model.Coffee;
-import geektime.spring.springbucks.service.CoffeeService;
+import com.eor.springcache.converter.BytesToMoneyConverter;
+import com.eor.springcache.converter.MoneyToBytesConverter;
+import com.eor.springcache.model.Coffee;
+import com.eor.springcache.service.CoffeeService;
 import io.lettuce.core.ReadFrom;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

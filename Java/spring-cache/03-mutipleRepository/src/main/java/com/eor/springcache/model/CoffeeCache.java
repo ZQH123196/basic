@@ -1,4 +1,4 @@
-package geektime.spring.springbucks.model;
+package com.eor.springcache.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

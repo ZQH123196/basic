@@ -16,4 +16,14 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.graphql-java/graphql-java-spring-boot-starter-webmvc -->
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-spring-boot-starter-webmvc</artifactId>
+            <version>2021-10-25T04-50-54-fbc162f</version>
+        </dependency>
+
+    </dependencies>
+
 </project>

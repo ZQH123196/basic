@@ -1,2 +1,6 @@
-package com.eor;public class juc {
+package com.eor;
+
+public class Juc {
+
+
 }

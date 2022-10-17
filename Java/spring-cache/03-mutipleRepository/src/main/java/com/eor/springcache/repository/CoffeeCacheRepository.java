@@ -1,6 +1,6 @@
-package geektime.spring.springbucks.repository;
+package com.eor.springcache.repository;
 
-import geektime.spring.springbucks.model.CoffeeCache;
+import com.eor.springcache.model.CoffeeCache;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

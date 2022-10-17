@@ -1,13 +1,14 @@
-package org.eor.designPattern.visitor.ToolApplicationV2.ToolApplicationV1;
+package org.eor.designPattern.visitor.ToolApplicationV2;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-// 运行结果是：
-// Extract PDF.
-// Extract WORD.
-// Extract PPT.
+
+
+/**
+ * @author ZQH12
+ */
 public class ToolApplication {
     public static void main(String[] args) {
         List<ResourceFile> resourceFileList = new ArrayList<>();
@@ -15,8 +16,9 @@ public class ToolApplication {
         resourceFileList.add(new PptFile("b.ppt"));
         resourceFileList.add(new WordFile("c.word"));
 
+        Extractor extractor = new Extractor();
         for (ResourceFile resourceFile : resourceFileList) {
-            String res = resourceFile.extract2txt();
+            String res = extractor.extract2txt(resourceFile);
             System.out.println(res);
         }
     }

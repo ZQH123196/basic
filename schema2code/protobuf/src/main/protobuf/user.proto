@@ -3,7 +3,7 @@ syntax = "proto3";
 package protoRoot;
 
 option java_multiple_files = true;
-option java_package = "com.eor.proto.pojo";
+option java_package = "com.eor.proto.vo";
 option java_outer_classname = "UserProtos";
 
 message User {

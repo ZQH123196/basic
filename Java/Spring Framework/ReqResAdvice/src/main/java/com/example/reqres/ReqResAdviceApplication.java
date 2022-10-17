@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ReqResAdviceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ReqResAdviceApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ReqResAdviceApplication.class, args);
+    }
 
 }

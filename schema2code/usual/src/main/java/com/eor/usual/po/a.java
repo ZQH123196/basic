@@ -1,2 +1,7 @@
-package com.eor.usual.po;public class a {
+package com.eor.usual.po;
+
+/**
+ * PO（Persistent Object）
+ */
+public class a {
 }

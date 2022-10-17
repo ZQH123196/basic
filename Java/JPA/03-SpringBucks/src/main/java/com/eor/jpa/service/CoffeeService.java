@@ -1,7 +1,7 @@
-package geektime.spring.springbucks.service;
+package com.eor.jpa.service;
 
-import geektime.spring.springbucks.model.Coffee;
-import geektime.spring.springbucks.repository.CoffeeRepository;
+import com.eor.jpa.entity.Coffee;
+import com.eor.jpa.repository.CoffeeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;

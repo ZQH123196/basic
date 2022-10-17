@@ -1,6 +1,6 @@
-package geektime.spring.springbucks.repository;
+package com.eor.springcache.repository;
 
-import geektime.spring.springbucks.model.Coffee;
+import com.eor.springcache.model.Coffee;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CoffeeRepository extends JpaRepository<Coffee, Long> {

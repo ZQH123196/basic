@@ -1,4 +1,4 @@
-package geektime.spring.springbucks.customer.support;
+package com.example.openfeignclient.support;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;

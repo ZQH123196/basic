@@ -1,0 +1,2 @@
+banner start: [${myProp1}]
+buildStamp: [${buildStamp}]

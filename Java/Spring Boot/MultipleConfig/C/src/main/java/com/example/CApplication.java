@@ -1,4 +1,4 @@
-package com.example.b;
+package com.example;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -8,29 +8,22 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
 
-
 @SpringBootApplication
 @Slf4j
-public class BApplication implements ApplicationRunner {
+public class CApplication implements ApplicationRunner {
     public static void main(String[] args) {
         new SpringApplicationBuilder()
-                .sources(BApplication.class)
+                .sources(CApplication.class)
                 .run(args);
     }
 
-    @Value("${name.A}")
-    String nameA;
 
-    @Value("${name.B}")
-    String nameB;
 
-    @Value("${name.C}")
+    @Value("${C}")
     String nameC;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        log.info(nameA);
-        log.info(nameB);
         log.info(nameC);
     }
 }

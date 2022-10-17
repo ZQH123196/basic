@@ -1,6 +1,7 @@
-package com.example.mvcinterception.interception;
+package com.example.webservlet.interception.interception;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Slf4j
 @Component
+@Order()
 public class LogInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

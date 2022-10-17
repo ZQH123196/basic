@@ -23,13 +23,13 @@ class MyFilterChain {
 
 class MyFilterA extends MyFilter {
     public void doFilter(StringBuilder value) {
-        value.append("A");
+        value.append("MyFilterA");
     }
 }
 
 class MyFilterB extends MyFilter {
     public void doFilter(StringBuilder value) {
-        value.append("B");
+        value.append("MyFilterB");
     }
 }
 
@@ -44,4 +44,3 @@ String res = filterChain.handle(new StringBuilder("res")).toString()
 println("res = [${res}]")
 
 
-println(123)

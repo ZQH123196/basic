@@ -1,7 +1,7 @@
 package org.example.jar;
 
 public class Version {
-    public String printVersion() {
-        return "first version 2.0!";
+    static public String printVersion() {
+        return "second version 2.0!";
     }
 }

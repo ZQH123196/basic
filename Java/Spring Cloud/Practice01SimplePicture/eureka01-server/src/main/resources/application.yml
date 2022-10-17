@@ -1,12 +1,13 @@
-server.address=localhost
-server.port=8761
+server:
+  address: localhost
+  port: 8761
+
+spring:
+  application:
+    name: eureka-server
 
 
-eureka.instance.hostname=eureka-server
+eureka:
+  instance:
+    hostname: eureka-server
 
-# 在修改 host 也就是 dns 的情况下，访问域名 http://eureka-server:8761/，应该可以进入注册中心
-eureka.client.service-url.defaultZone=http://${eureka.instance.hostname}:${server.port}/eureka
-# 作为注册中心的自己不需要注册进去，不过在集群情况下相反
-eureka.client.register-with-eureka=false
-# 作为注册中心的自己也不需要自动拉取可用的微服务，不过在集群情况下相反
-eureka.client.fetch-registry=false

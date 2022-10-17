@@ -22,11 +22,6 @@ public class CustomerCircuitBreakerApplication implements ApplicationRunner {
         SpringApplication.run(CustomerCircuitBreakerApplication.class, args);
     }
 
-    @Autowired
-    TestController testController;
-
     @Override
-    public void run(ApplicationArguments args) throws Exception {
-
-    }
+    public void run(ApplicationArguments args) throws Exception {  }
 }

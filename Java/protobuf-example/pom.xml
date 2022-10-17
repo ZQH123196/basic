@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.6.5</version>
+    </parent>
+
+    <groupId>org.eor</groupId>
+    <artifactId>protobuf-example</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.20.0-rc-1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java-util</artifactId>
+            <version>3.20.0-rc-1</version>
+        </dependency>
+        <!--        下面这个依赖可以让 maven 把 protoc.exe 下载下来，内网可以这样用-->
+        <!-- https://mvnrepository.com/artifact/com.google.protobuf/protoc -->
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protoc</artifactId>
+            <version>3.19.4</version>
+            <type>pom</type>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.os72</groupId>
+                <artifactId>protoc-jar-maven-plugin</artifactId>
+                <version>3.11.4</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <protocArtifact>com.google.protobuf:protoc:3.19.4</protocArtifact>
+                            <addProtoSources>all</addProtoSources>
+                            <includeMavenTypes>direct</includeMavenTypes>
+                            <inputDirectories>
+                                <include>src/main/protobuf</include>
+                            </inputDirectories>
+                            <outputTargets>
+                                <outputTarget>
+                                    <type>java</type>
+                                    <addSources>none</addSources>
+                                    <!--                                    <outputDirectory>src/main/java/com/eor/proto/pojo</outputDirectory>-->
+                                </outputTarget>
+                            </outputTargets>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

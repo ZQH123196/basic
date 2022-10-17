@@ -24,20 +24,26 @@ public class SimpleReactorDemoApplication implements ApplicationRunner {
         // 打开全局 debug 模式，提供更好的数据流跟踪
         Hooks.onOperatorDebug();
         Flux.range(1, 6)
-                .doOnRequest(n -> log.info("Request {} number", n)) // 注意顺序造成的区别
-                .publishOn(Schedulers.elastic())
+                // 注意顺序造成的区别
+                .doOnRequest(n -> log.info("Request {} number", n))
+                .publishOn(Schedulers.boundedElastic())
                 .doOnComplete(() -> log.info("Publisher COMPLETE 1"))
                 .map(i -> {
                     log.info("Publish {}, {}", Thread.currentThread(), i);
-//					return 10 / (i - 3); // 演示错误处理
+                    // 演示错误处理
+                    if (i == 3) {
+                        throw new RuntimeException("流水线错误！");
+                    }
+//					return 10 / (i - 3);
                     return i;
                 })
                 .doOnComplete(() -> log.info("Publisher COMPLETE 2"))
-//				.subscribeOn(Schedulers.single())
-//				.onErrorResume(e -> {
-//					log.error("Exception {}", e.toString());
-//					return Mono.just(-1);
-//				})
+                // 影响下面的 reactor
+				.subscribeOn(Schedulers.single())
+				.onErrorResume(e -> {
+					log.error("onErrorResume Exception {}", e.toString());
+					return Mono.just(-1);
+				})
 //				.onErrorReturn(-1)
                 .subscribe(i -> log.info("Subscribe {}: {}", Thread.currentThread(), i),
                         e -> log.error("error {}", e.toString()),

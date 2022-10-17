@@ -1,26 +1,34 @@
 package org.eor.designPattern.annotation.retention
 
 import java.lang.annotation.Annotation
+import java.lang.annotation.ElementType
 import java.lang.annotation.Retention
 import java.lang.annotation.RetentionPolicy
+import java.lang.annotation.Target
 
+/**
+ * 体现 @Retention 对注解存活期的限定
+ */
 
-@Retention(RetentionPolicy.SOURCE)
-public @interface MyAnnotationOne {
-    String when() default "before";
-    String value() default "default value";
-}
+@Retention(RetentionPolicy.RUNTIME)
+@interface MyAnnotationOne {
+    String when() default "MyAnnotationOne";
 
-@Retention(RetentionPolicy.CLASS)
-public @interface MyAnnotationTwo {
-    String when() default "before";
-    String value() default "default value";
+    String value() default "default MyAnnotationOne value";
 }
 
 @Retention(RetentionPolicy.RUNTIME)
-public @interface MyAnnotationThree {
-    String when() default "before";
-    String value() default "default value";
+@interface MyAnnotationTwo {
+    String when() default "MyAnnotationTwo";
+
+    String value() default "default MyAnnotationTwo value";
+}
+
+@Retention(RetentionPolicy.RUNTIME)
+@interface MyAnnotationThree {
+    String when() default "MyAnnotationThree";
+
+    String value() default "default MyAnnotationThree value";
 }
 
 @MyAnnotationOne

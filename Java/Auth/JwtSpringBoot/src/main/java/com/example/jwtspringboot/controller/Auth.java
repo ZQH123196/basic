@@ -1,2 +1,6 @@
-package com.example.jwtspringboot.controller;public class Auth {
+package com.example.jwtspringboot.controller;
+
+public class Auth {
+
+    
 }

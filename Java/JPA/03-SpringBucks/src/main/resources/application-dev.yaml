@@ -5,7 +5,7 @@ spring:
         show_sql: true
         format_sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none # 使用 spring boot 初始化
 
 
 logging:

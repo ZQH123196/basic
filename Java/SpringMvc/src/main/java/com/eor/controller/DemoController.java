@@ -1,4 +1,4 @@
-package com.eor;
+package com.eor.controller;
 
 import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Controller;
@@ -26,6 +26,11 @@ import java.util.UUID;
 @RequestMapping("/demo")
 public class DemoController  {
 
+    @ResponseBody
+    @RequestMapping("echo")
+    public String echoServer(@PathVariable String str) {
+        return str;
+    }
 
     @RequestMapping("/handle01")
     public String handle01(String name,Map<String,Object> model) {

@@ -29,6 +29,7 @@ public class CircuitBreakerAspect {
             if (counter.containsKey(signature)) {
                 if (counter.get(signature).get() > THRESHOLD &&
                         breakCounter.get(signature).get() < THRESHOLD) {
+                    // 超过次数，直接断掉
                     log.warn("Circuit breaker return null, break {} times.",
                             breakCounter.get(signature).incrementAndGet());
                     return null;
@@ -41,7 +42,10 @@ public class CircuitBreakerAspect {
             counter.get(signature).set(0);
             breakCounter.get(signature).set(0);
         } catch (Throwable t) {
-            log.warn("进入断路器，Circuit breaker counter: {}, Throwable {}");
+            log.warn("进入断路器，Circuit breaker counter: {}, Throwable {}",
+                    counter.get(signature).incrementAndGet(), t.getMessage());
+            breakCounter.get(signature).set(0);
+            throw t;
         }
         return resVal;
     }

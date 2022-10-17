@@ -1,8 +1,6 @@
 package com.eor.jsonschema.aop;
 
 
-import com.alibaba.fastjson.JSONObject;
-
 
 import com.eor.jsonschema.annontation.SchemaValidator;
 import lombok.extern.slf4j.Slf4j;
@@ -13,9 +11,8 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.everit.json.schema.Schema;
 import org.everit.json.schema.ValidationException;
 import org.everit.json.schema.loader.SchemaLoader;
+import org.json.JSONObject;
 import org.json.JSONTokener;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import java.io.InputStream;
 
@@ -27,15 +24,20 @@ public class JsonValidatedAop {
     @Pointcut("@annotation(com.eor.jsonschema.annontation.SchemaValidator)")
     private void pointcut() {}
 
-    @Before("pointcut() && @annotation(SchemaValidator)")
-    public void before(JoinPoint joinPoint, SchemaValidator jsonValid) {
+    @Before("pointcut() && @annotation(schemaValidator)")
+    public void before(JoinPoint joinPoint, SchemaValidator schemaValidator) {
         Object[] args = joinPoint.getArgs();
         if (args != null) {
-            String jsonString = JSONObject.toJSONString(args[0]);
-            /** 验证的结果，可以返回，也可以写个全局捕捉的异常 */
-            String validMsg = validJson(jsonString, jsonValid.schemaName());
+            String jsonString = com.alibaba.fastjson.JSONObject.toJSONString(args[0]);
+            String validMsg;
+            try {
+                validMsg = validJson(jsonString, schemaValidator.schemaName());
+            } catch (RuntimeException e) {
+
+            }
+
         }
-        log.info("数据：" + JSONObject.toJSONString(args) + jsonValid.schemaName());
+        log.info("数据：" + com.alibaba.fastjson.JSONObject.toJSONString(args) + schemaValidator.schemaName());
 
     }
 
@@ -51,17 +53,17 @@ public class JsonValidatedAop {
 
         StringBuilder sBuilder = new StringBuilder();
         try {
-            //InputStream inputStream = getClass().getResourceAsStream("/schema/hello.json");
-            //org.json.JSONObject rawSchema = new org.json.JSONObject(new JSONTokener(inputStream));
+            JSONObject jsonData = new JSONObject(jsonString);
+            InputStream in = getClass().getResourceAsStream("/schemas/" + schemaName);
 
-            org.json.JSONObject rawSchema = new org.json.JSONObject(jsonString);
-            InputStream in1 = getClass().getResourceAsStream("/schemas/" + schemaName);
-            org.json.JSONObject sSchema = new org.json.JSONObject(new JSONTokener(in1));
-            Schema schema = SchemaLoader.load(sSchema);
-            schema.validate(rawSchema);
+            JSONObject schemaData = new JSONObject(new JSONTokener(in));
+            Schema schema = SchemaLoader.load(schemaData); // 一般使用缓存
+            schema.validate(jsonData);
         } catch (ValidationException e) {
             log.error(e.getMessage());
+            log.error(e.getViolatedSchema().getDescription()); // 拿到原始 schema 的描述
             sBuilder.append(e.getMessage());
+            sBuilder.append(e.getViolatedSchema().getDescription());
             throw e; // 继续往上抛
         }
         return sBuilder.toString();

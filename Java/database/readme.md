@@ -24,7 +24,10 @@ durability：一个事务被提交修改，对数据库中数据的操作就是�
 https://www.cnblogs.com/Hakuna-Matata/p/7772794.html
 
 
+发展历史，使用指南
+jdbc connection(DriverManager.getConnection) -> datasource(connection pool javax) -> 
+PooledConnectuon/ConnectionPoolDataSource/ConnectionEventListener -> 
+spring jdbcTemplate/NamedTemplate -> orm -> spring boot + orm
 
-jdbc connection -> datasource(connection pool) -> spring jdbcTemplate/NamedTemplate -> orm -> spring boot + orm
-
+javax.sql.DataSource interface, new in the JDBC 2.0 API, provides another way to connect to a data source. The use of a DataSource object is the preferred means of connecting to a data source.
 

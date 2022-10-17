@@ -1,2 +1,7 @@
-package com.eor.usual.vo;public class vo {
+package com.eor.usual.vo;
+
+/**
+ * VO（View Object）
+ */
+public class vo {
 }

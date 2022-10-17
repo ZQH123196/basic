@@ -1,1 +1,1 @@
-org.springframework.boot.env.EnvironmentPostProcessor=geektime.spring.hello.environment.YapfEnvironmentPostProcessor
+org.springframework.boot.env.EnvironmentPostProcessor=com.example.propertysource.environment.SimpleTestPropertySource,com.example.propertysource.environment.DecryptTestPropertySource

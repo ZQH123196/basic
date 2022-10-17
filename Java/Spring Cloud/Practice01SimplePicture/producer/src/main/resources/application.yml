@@ -6,6 +6,8 @@ spring:
     name: producer
 
 
+
+
   
   # 在修改 host 也就是 dns 的情况下，访问域名 http://eureka-server:8761/eureka，应该可以进入注册中心
 eureka:

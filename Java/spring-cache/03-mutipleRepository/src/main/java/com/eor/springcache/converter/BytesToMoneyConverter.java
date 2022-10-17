@@ -1,4 +1,4 @@
-package geektime.spring.springbucks.converter;
+package com.eor.springcache.converter;
 
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;

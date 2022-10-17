@@ -1,9 +1,9 @@
-package geektime.spring.springbucks.service;
+package com.eor.jpa.service;
 
-import geektime.spring.springbucks.model.Coffee;
-import geektime.spring.springbucks.model.CoffeeOrder;
-import geektime.spring.springbucks.model.OrderState;
-import geektime.spring.springbucks.repository.CoffeeOrderRepository;
+import com.eor.jpa.entity.Coffee;
+import com.eor.jpa.entity.CoffeeOrder;
+import com.eor.jpa.entity.constant.OrderState;
+import com.eor.jpa.repository.CoffeeOrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

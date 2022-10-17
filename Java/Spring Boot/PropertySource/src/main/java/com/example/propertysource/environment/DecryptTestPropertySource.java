@@ -4,8 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.env.EnvironmentPostProcessor;
 import org.springframework.boot.env.PropertiesPropertySourceLoader;
 
-import org.springframework.boot.origin.Origin;
-import org.springframework.boot.origin.OriginTrackedValue;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.MutablePropertySources;
 import org.springframework.core.env.PropertiesPropertySource;
@@ -21,20 +19,20 @@ import java.util.Map;
 import java.util.Properties;
 
 
-public class EncryptTestPropertySource implements EnvironmentPostProcessor {
+public class DecryptTestPropertySource implements EnvironmentPostProcessor {
     private static PropertiesPropertySourceLoader loader = new PropertiesPropertySourceLoader();
 
     @Override
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
-        encryptProperty(environment, application);
+        decryptProperty(environment, application);
     }
 
-    private static void encryptProperty(ConfigurableEnvironment environment, SpringApplication application) {
+    private static void decryptProperty(ConfigurableEnvironment environment, SpringApplication application) {
         MutablePropertySources mutablePropertySources = environment.getPropertySources();
         Resource resource = new ClassPathResource("encrypt.properties");
         try {
             // 这个返回的是不可变的，不能替换
-//            propertySource = loader.load(EncryptTestPropertySource.class.getSimpleName(), resource).get(0);
+//            propertySource = loader.load(DecryptTestPropertySource.class.getSimpleName(), resource).get(0);
             InputStream inputStream = new FileInputStream(resource.getFile());
             Properties properties = new Properties();
             properties.load(inputStream);

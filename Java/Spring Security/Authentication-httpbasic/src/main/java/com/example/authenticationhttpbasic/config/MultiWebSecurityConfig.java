@@ -2,7 +2,6 @@ package com.example.authenticationhttpbasic.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -19,7 +18,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 
 
 @EnableWebSecurity
-public class MultiHttpSecurityConfig {
+public class MultiWebSecurityConfig {
 
     static String username = "admin";
     static String password = "1008610086";

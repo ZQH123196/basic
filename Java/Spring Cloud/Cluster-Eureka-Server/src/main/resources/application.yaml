@@ -1,21 +1,9 @@
-server:
-  port: 9001
+
 spring:
   application:
     # 集群服务的名称，所有机子构成的集群对外就提供这一个名称
     name: cluster-server
 
-# 配置集群
-eureka:
-  instance:
-    hostname: Cluster-Eureka-Server01
-    # 在旧版本的 Eureka 显示以 spring.application.name 为优先，在新版本的 Eureka 显示以 eureka.instance.appname 为优先。
-    # 因此，不要使用 appname，以免未来切换注册中心给自己找麻烦。
-#    appname: cluster-server
-  client:
-    enabled: true
-    service-url:
-      defaultZone:
-        - http://Cluster-Eureka-Server02:9002/eureka
-    register-with-eureka: true
-    fetch-registry: true
+
+
+

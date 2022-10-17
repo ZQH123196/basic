@@ -12,7 +12,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@EnableCaching
+@EnableCaching(proxyTargetClass = true)
 @EnableTransactionManagement
 @SpringBootApplication
 @EnableJpaRepositories
@@ -28,17 +28,14 @@ public class App implements ApplicationRunner {
     private CoffeeService coffeeService;
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        // 先查一次，findAllCoffee 方法有 @Cacheable 注解
         log.info("Count: {}", coffeeService.findAllCoffee().size());
-        // 后续的多次查询都从缓存中取出，因此不会有 sql 查询
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             log.info("Reading from cache.");
             coffeeService.findAllCoffee();
         }
-        // reloadCoffee 方法有 @CacheEvict 注解，逐出缓存
-        coffeeService.reloadCoffee();
+        // 这里等待 5s 是因为设置了 ttl 为 5s，让缓存过期
+        Thread.sleep(5_000);
         log.info("Reading after refresh.");
-        // 逐出缓存之后，再次查询就会重新拿取缓存了
         coffeeService.findAllCoffee().forEach(c -> log.info("Coffee {}", c.getName()));
     }
 }

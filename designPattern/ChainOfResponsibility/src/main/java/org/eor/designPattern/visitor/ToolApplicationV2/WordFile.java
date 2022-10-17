@@ -1,12 +1,8 @@
-package org.eor.designPattern.visitor.ToolApplicationV2.ToolApplicationV1;
+package org.eor.designPattern.visitor.ToolApplicationV2;
 
 public class WordFile extends ResourceFile {
     public WordFile(String filePath) {
         super(filePath);
     }
 
-    @Override
-    public String extract2txt() {
-        return "Extract by " + this.getClass().getSimpleName();
-    }
 }

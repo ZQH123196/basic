@@ -1,4 +1,4 @@
-package com.example.authenticationhttpbasic.controller;
+package com.example.authenticationformlogin.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,4 +1,4 @@
-package com.example.mvcinterception.controller;
+package com.example.webservlet.interception.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,9 +18,9 @@ public class TestController {
     @Autowired
     HandlerMapping handlerMapping;
 
-    @RequestMapping("/hellow")
-    public String hellow(HttpServletRequest request) throws Exception {
-        return "hellow world!";
+    @RequestMapping("/hello")
+    public String hello(HttpServletRequest request) throws Exception {
+        return "hello world!";
     }
 
     @RequestMapping("/echo")

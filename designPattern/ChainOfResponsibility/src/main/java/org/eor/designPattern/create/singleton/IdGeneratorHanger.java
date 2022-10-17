@@ -5,13 +5,13 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * 饿汉式，无懒加载
  */
-public class IdGenerator {
-    private AtomicLong id = new AtomicLong();
-    private static final IdGenerator instance = new IdGenerator();
+public class IdGeneratorHanger {
+    private static AtomicLong id = new AtomicLong(0);
+    private static final IdGeneratorHanger instance = new IdGeneratorHanger();
     // 私有构造，阻止 new
-    private IdGenerator() {}
+    private IdGeneratorHanger() {}
 
-    public IdGenerator getInstance() {
+    public IdGeneratorHanger getInstance() {
         return instance;
     }
 

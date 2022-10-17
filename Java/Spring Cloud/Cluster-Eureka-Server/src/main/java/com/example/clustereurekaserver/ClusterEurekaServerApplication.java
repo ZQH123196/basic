@@ -1,15 +1,18 @@
-package com.example.clustereurekaserver01;
+package com.example.clustereurekaserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
-@EnableDiscoveryClient
+@EnableEurekaServer
+@EnableEurekaClient
 @SpringBootApplication
-public class ClusterEurekaServer01Application {
+public class ClusterEurekaServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ClusterEurekaServer01Application.class, args);
+        SpringApplication.run(ClusterEurekaServerApplication.class, args);
     }
 
 }

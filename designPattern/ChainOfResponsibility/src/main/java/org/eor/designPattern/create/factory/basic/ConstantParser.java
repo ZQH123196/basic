@@ -1,2 +1,5 @@
-package org.eor.designPattern.create.factory.basic;public enum ConstantParser {
+package org.eor.designPattern.create.factory.basic;
+
+public enum ConstantParser {
+
 }

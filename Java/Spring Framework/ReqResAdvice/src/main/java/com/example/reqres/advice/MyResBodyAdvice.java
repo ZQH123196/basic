@@ -1,4 +1,4 @@
 package com.example.reqres.advice;
 
-public class MyResAdvice {
+public class MyResBodyAdvice {
 }

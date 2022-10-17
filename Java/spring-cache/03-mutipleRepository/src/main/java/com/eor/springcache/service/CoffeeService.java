@@ -1,9 +1,9 @@
-package geektime.spring.springbucks.service;
+package com.eor.springcache.service;
 
-import geektime.spring.springbucks.model.Coffee;
-import geektime.spring.springbucks.model.CoffeeCache;
-import geektime.spring.springbucks.repository.CoffeeCacheRepository;
-import geektime.spring.springbucks.repository.CoffeeRepository;
+import com.eor.springcache.model.Coffee;
+import com.eor.springcache.model.CoffeeCache;
+import com.eor.springcache.repository.CoffeeCacheRepository;
+import com.eor.springcache.repository.CoffeeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;

@@ -1,6 +1,7 @@
-package geektime.spring.springbucks.jpademo.repository;
+package com.eor.jpa.repository;
 
-import geektime.spring.springbucks.jpademo.model.CoffeeOrder;
+import com.eor.jpa.entity.CoffeeOrder;
+import com.eor.jpa.repository.base.BaseRepository;
 
 import java.util.List;
 

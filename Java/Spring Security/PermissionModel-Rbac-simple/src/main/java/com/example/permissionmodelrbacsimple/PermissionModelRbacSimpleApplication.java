@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class PermissionModelRbacSimpleApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PermissionModelRbacSimpleApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(PermissionModelRbacSimpleApplication.class, args);
+    }
 
 }

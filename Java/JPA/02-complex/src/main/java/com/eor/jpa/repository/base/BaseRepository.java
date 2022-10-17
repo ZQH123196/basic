@@ -1,4 +1,4 @@
-package geektime.spring.springbucks.jpademo.repository;
+package com.eor.jpa.repository.base;
 
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.PagingAndSortingRepository;
