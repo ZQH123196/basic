@@ -23,5 +23,6 @@ public class FirstInitializer implements ApplicationContextInitializer {
         MapPropertySource mapPropertySource = new MapPropertySource("prop", map);
         environment.getPropertySources().addLast(mapPropertySource);
         System.out.println("自定义初始化器：" + this.getClass().getSimpleName());
+        System.out.println("获取 maven 属性：" + environment.getProperty("mysetting.maven.buildStamp"));
     }
 }

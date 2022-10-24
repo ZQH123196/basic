@@ -1,0 +1,6 @@
+#spring:
+#  config:
+#    location: "config/*/"
+
+
+moduleOne: "moduleOne"

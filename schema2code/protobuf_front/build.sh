@@ -1,0 +1,1 @@
+protoc -I="D:\Code\Project\basic\schema2code\protobuf\src\main\protobuf" user.proto --js_out=import_style=commonjs:./src/autoType  --grpc-web_out=import_style=commonjs+dts,mode=grpcwebtext:./src/autoType

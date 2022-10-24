@@ -1,0 +1,26 @@
+server:
+  port: 9001
+
+# eureka 客户端配置（和 Server 交互），Eureka Server 本身也是一个Client
+eureka:
+  dashboard:
+    enabled: true
+    path: /
+  # 服务实例配置
+  instance:
+    hostname: ClusterEurekaServerA
+
+    # 在旧版本的 Eureka 显示以 spring.application.name 为优先，在新版本的 Eureka 显示以 eureka.instance.appname 为优先。
+    # 因此，不要使用 appname，以免未来切换注册中心给自己找麻烦。
+#    appname: cluster-server
+  # 配置客户端，客户端是客户端，与其他配置无关
+  client:
+    enabled: true
+    service-url:
+      # 配置客户端所交互的Eureka Server的地址（Eureka Server集群中每一个Server其实相对于其它Server来说都是Client）
+      # 集群模式下，defaultZone应该指向其它Eureka Server，如果有更多其它Server实例，逗号拼接即可
+      # 注意，这里的 /eureka/ 不能随意修改，是内部的自己启的一个 controller，他们会用 http get 请求来自动同步
+      defaultZone: http://ClusterEurekaServerB:9002/eureka/
+    register-with-eureka: true # 集群模式下可以改成true
+    # 集群模式下可以改成 true，非集群要改为 false，防止自己调用自己
+    fetch-registry: true

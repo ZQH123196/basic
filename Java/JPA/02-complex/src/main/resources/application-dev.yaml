@@ -1,0 +1,33 @@
+spring:
+#  sql:
+#    init:
+#      mode: always
+#  datasource:
+#    schema:
+#      - classpath:dev/sql/schema.sql
+#    data:
+#      - classpath:dev/sql/data.sql
+#    initialization-mode: embedded
+  jpa:
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    hibernate:
+      ddl-auto: create-drop
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+      springframework:
+        jdbc:
+          core:
+            JdbcTemplate: DEBUG
+            StatementCreatorUtils: TRACE

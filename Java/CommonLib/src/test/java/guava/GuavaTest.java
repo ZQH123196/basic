@@ -181,4 +181,32 @@ public class GuavaTest {
         System.out.printf("immutableList: %s\n", immutableList);
     }
 
+
+    /**
+     * 找两个 map 的差异数据
+     * 场景：对账
+     */
+    @Test
+    public void diff4Map() {
+        ImmutableMap<String, String> leftMap = ImmutableMap.of("a", "1", "b", "2", "c", "3");
+        ImmutableMap<String, String> rightMap = ImmutableMap.of("a", "3", "b", "2", "d", "4");
+
+
+        MapDifference<String, String> diff = Maps.difference(leftMap, rightMap);
+
+        // 获取全部结果
+        System.out.println(diff);
+        // 只有 k、v 都一样才能匹配
+        System.out.println(diff.areEqual());
+        // 找出两个 map 中 k、v 都相同的值 {b=2}
+        System.out.println(diff.entriesInCommon());
+        // 找出 k 相同，v 不同的值 {a=(1, 3)}
+        System.out.println(diff.entriesDiffering());
+        // 以左边的 key 为重心，找出 key 在左边不在右边的值 {c=3}
+        System.out.println(diff.entriesOnlyOnLeft());
+        // 与上面方向相反 {d=4}
+        System.out.println(diff.entriesOnlyOnRight());
+
+    }
+
 }

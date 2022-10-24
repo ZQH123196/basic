@@ -7,6 +7,7 @@ import org.springframework.core.annotation.Order;
 @Order(2)
 public class SecondListener implements ApplicationListener<ApplicationStartingEvent> {
     @Override
-    public void onApplicationEvent(ApplicationStartingEvent event) { System.out.println(this.getClass().getName());
+    public void onApplicationEvent(ApplicationStartingEvent event) {
+        System.out.println(this.getClass().getName());
     }
 }

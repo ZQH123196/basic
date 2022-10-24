@@ -1,0 +1,9 @@
+
+spring:
+  application:
+    # 集群服务的名称，所有机子构成的集群对外就提供这一个名称
+    name: cluster-server
+
+
+
+
