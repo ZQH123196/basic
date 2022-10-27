@@ -196,7 +196,7 @@ public class GuavaTest {
 
         // 获取全部结果
         System.out.println(diff);
-        // 只有 k、v 都一样才能匹配
+        // 只有 k、v 都一样才能匹配 false
         System.out.println(diff.areEqual());
         // 找出两个 map 中 k、v 都相同的值 {b=2}
         System.out.println(diff.entriesInCommon());

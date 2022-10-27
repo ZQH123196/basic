@@ -1,0 +1,61 @@
+
+
+### login
+POST /Auth/login HTTP/1.1
+Host: localhost:8080
+username: admin
+password: admin123
+
+{}
+
+
+
+### 
+POST /Auth/login HTTP/1.1
+Host: localhost:8080
+username: testUser1
+password: test
+
+{}
+
+
+### doSomeByRoleAdmin
+POST /Auth/doSomeByRoleAdmin HTTP/1.1
+Host: localhost:8080
+username: admin
+password: admin123
+
+{}
+
+### 
+POST /Auth/doSomeByRoleAdmin HTTP/1.1
+Host: localhost:8080
+username: testUser1
+password: test
+
+{}
+
+### 
+POST /Auth/doSomeByRoleAdmin HTTP/1.1
+Host: localhost:8080
+username: testUser2
+password: test
+
+{}
+
+
+### addRoleByPerm
+POST /Auth/addRoleByPerm HTTP/1.1
+Host: localhost:8080
+username: admin
+password: admin123
+
+{}
+
+###
+POST /Auth/addRoleByPerm HTTP/1.1
+Host: localhost:8080
+username: testUser2
+password: test
+
+{}
