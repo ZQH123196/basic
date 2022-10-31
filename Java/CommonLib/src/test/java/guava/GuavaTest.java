@@ -44,7 +44,7 @@ public class GuavaTest {
         // 对数组的兼容性
         String[] strings = {"a", "b", "c"};
         Joiner joinerStrings = Joiner.on(separator).skipNulls();
-        String joinerStringsRes = joinerStrings.join(list);
+        String joinerStringsRes = joinerStrings.join(strings);
         System.out.println(joinerStringsRes);
 
         // 接近的原始代码实现
