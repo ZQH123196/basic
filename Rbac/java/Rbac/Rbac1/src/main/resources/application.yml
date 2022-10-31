@@ -1,0 +1,17 @@
+
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/mysql
+    username: root
+    password: password
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+Auth:
+  http:
+    head:
+      authHeadName: authorization
+      loginName: username
+      loginPass: password
