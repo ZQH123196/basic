@@ -1,0 +1,56 @@
+[
+    {
+        "type": "menu",
+        "name": "module1-menuL1",
+        "order": "0",
+        "icon": "",
+        "children": [
+            {
+                "type": "menu",
+                "name": "menuL2",
+                "childern": [
+                    {
+                        "type": "page",
+                        "name": "menuL1-menuL2-page1",
+                        "icon": "",
+                        "component": ""
+                    }
+                ]
+            },
+            {
+                "type": "page",
+                "name": "menuL1-page1",
+                "icon": "",
+                "component": ""
+            }
+
+        ]
+    },
+    {
+        "type": "menu",
+        "name": "module2-menuL1",
+        "order": "1",
+        "icon": "",
+        "children": [
+            {
+                "type": "menu",
+                "name": "menuL2",
+                "childern": [
+                    {
+                        "type": "page",
+                        "name": "menuL1-menuL2-page1",
+                        "icon": "",
+                        "component": ""
+                    }
+                ]
+            },
+            {
+                "type": "page",
+                "name": "menuL1-page1",
+                "icon": "",
+                "component": ""
+            }
+
+        ]
+    },
+]
