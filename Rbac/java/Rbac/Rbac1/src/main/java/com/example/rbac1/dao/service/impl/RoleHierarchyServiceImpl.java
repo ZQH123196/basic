@@ -1,8 +1,8 @@
-package com.example.mpgenerator.d.rbac1.service.impl;
+package com.example.rbac1.dao.service.impl;
 
-import com.example.mpgenerator.d.rbac1.entity.RoleHierarchy;
-import com.example.mpgenerator.d.rbac1.mapper.RoleHierarchyMapper;
-import com.example.mpgenerator.d.rbac1.service.IRoleHierarchyService;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.rbac1.dao.entity.RoleHierarchy;
+import com.example.rbac1.dao.mapper.RoleHierarchyMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2022-10-31
  */
 @Service
-public class RoleHierarchyServiceImpl extends ServiceImpl<RoleHierarchyMapper, RoleHierarchy> implements IRoleHierarchyService {
+public class RoleHierarchyServiceImpl extends ServiceImpl<RoleHierarchyMapper, RoleHierarchy> implements IService<RoleHierarchy> {
 
 }

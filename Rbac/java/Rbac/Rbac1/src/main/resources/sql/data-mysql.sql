@@ -1,17 +1,10 @@
-USE `rbac0WithHierarchy`;
+USE `rbac1`;
 
 INSERT INTO role (role) VALUES ('admin');
-INSERT INTO role (role, username) VALUES ('testRole1', 'testUser1');
-INSERT INTO role (role, username) VALUES ('testRole2', 'testUser2');
-INSERT INTO role (role, username) VALUES ('testRole3', 'testUser3');
-INSERT INTO role (role, username) VALUES ('testRole4', 'testUser4');
-
-INSERT INTO role (role, username) VALUES ('level1', 'testUser1');
-INSERT INTO role (role, username) VALUES ('level2', 'testUser2');
-INSERT INTO role (role, username) VALUES ('level3', 'testUser3');
-INSERT INTO role (role, username) VALUES ('level4', 'testUser4');
-
-
+INSERT INTO role (role) VALUES ('test1');
+INSERT INTO role (role) VALUES ('test2');
+INSERT INTO role (role) VALUES ('test3');
+INSERT INTO role (role) VALUES ('test4');
 
 
 INSERT INTO user (username, password) VALUES ('admin', 'admin123');
@@ -20,13 +13,9 @@ INSERT INTO user (username, password) VALUES ('testUser2', 'test');
 
 INSERT INTO role_user (role, username) VALUES ('admin', 'admin');
 INSERT INTO role_user (role, username) VALUES ('admin', 'testUser1');
-INSERT INTO role_user (role, username) VALUES ('test', 'testUser2');
+INSERT INTO role_user (role, username) VALUES ('test1', 'testUser2');
 
 INSERT INTO permission (id, expression) VALUES (1, 'system:role:create');
-
-
-
-
 
 
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.mpgenerator.d.rbac1.mapper.RoleHierarchyMapper">
+<mapper namespace="com.example.rbac1.dao.mapper.RoleHierarchyMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.example.mpgenerator.d.rbac1.entity.RoleHierarchy">
+    <resultMap id="BaseResultMap" type="com.example.rbac1.dao.entity.RoleHierarchy">
         <result column="role" property="role" />
         <result column="parent_role_id" property="parentRoleId" />
     </resultMap>

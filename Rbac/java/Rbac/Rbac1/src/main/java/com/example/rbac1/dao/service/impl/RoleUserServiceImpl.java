@@ -1,4 +1,4 @@
-package com.example.rabc1.dao.service.impl;
+package com.example.rbac1.dao.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

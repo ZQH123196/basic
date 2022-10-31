@@ -1,7 +1,7 @@
-package com.example.rbac0.dao.mapper;
+package com.example.rbac0withgroup.dao.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.example.rbac0.dao.entity.User;
+import com.example.rbac0withgroup.dao.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

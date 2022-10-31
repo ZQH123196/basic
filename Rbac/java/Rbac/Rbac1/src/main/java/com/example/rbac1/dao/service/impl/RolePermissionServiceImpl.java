@@ -1,8 +1,8 @@
-package com.example.mpgenerator.d.rbac1.service.impl;
+package com.example.rbac1.dao.service.impl;
 
-import com.example.mpgenerator.d.rbac1.entity.RolePermission;
-import com.example.mpgenerator.d.rbac1.mapper.RolePermissionMapper;
-import com.example.mpgenerator.d.rbac1.service.IRolePermissionService;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.rbac1.dao.entity.RolePermission;
+import com.example.rbac1.dao.mapper.RolePermissionMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2022-10-31
  */
 @Service
-public class RolePermissionServiceImpl extends ServiceImpl<RolePermissionMapper, RolePermission> implements IRolePermissionService {
+public class RolePermissionServiceImpl extends ServiceImpl<RolePermissionMapper, RolePermission> implements IService<RolePermission> {
 
 }

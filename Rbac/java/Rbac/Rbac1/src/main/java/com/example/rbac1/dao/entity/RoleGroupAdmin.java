@@ -1,4 +1,4 @@
-package com.example.rabc1.dao.entity;
+package com.example.rbac1.dao.entity;
 
 
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -10,8 +10,16 @@ import lombok.Data;
 
 import java.util.List;
 
+/**
+ * <p>
+ * 角色组表
+ * </p>
+ *
+ * @author zqh
+ * @since 2022-10-31
+ */
 @Data
-@TableName(autoResultMap = true)
+@TableName(value = "role_group_admin", autoResultMap = true)
 public class RoleGroupAdmin extends Model {
 
     @TableId("`group`")
@@ -26,5 +34,14 @@ public class RoleGroupAdmin extends Model {
     @TableField("`separator`")
     private String separator;
 
+    @Override
+    public String toString() {
+        return "RoleGroupAdmin{" +
+                "group=" + group +
+                ", roles=" + roles +
+                ", users=" + users +
+                ", separator=" + separator +
+                "}";
+    }
 
 }

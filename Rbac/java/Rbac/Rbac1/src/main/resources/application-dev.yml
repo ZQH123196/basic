@@ -11,4 +11,4 @@ spring:
 logging:
   level:
     # 打印sql
-    com.example.rbac0withhierarchy.dao.mapper: debug
+    com.example.rbac1.dao.mapper: debug

@@ -1,10 +1,10 @@
 
 
-DROP DATABASE IF EXISTS `rbac0WithHierarchy`;
-CREATE DATABASE  `rbac0WithHierarchy` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+DROP DATABASE IF EXISTS `rbac1`;
+CREATE DATABASE  `rbac1` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 SET NAMES utf8mb4;
 
-USE `rbac0WithHierarchy`;
+USE `rbac1`;
 
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
@@ -47,10 +47,7 @@ CREATE TABLE `role_permission` (
 
 
 
-# 邻接表实现的 父子继承关系，
-# 其实相当于单链表，使用时取全局 parent_role_id 为 null 的值然后将其 role 作为 where parent_role_id=role 条件递归往下查
-# 一直查到符合条件的值数量为 0，就算是查找完了整个继承关系
-# 将结果全部放到 list 中，这样从 0~end 的遍历中就能构造出树了
+# 邻接表实现的继承关系
 DROP TABLE IF EXISTS `role_hierarchy`;
 CREATE TABLE `role_hierarchy` (
    `role`      varchar(50) NOT NULL,
@@ -59,5 +56,25 @@ CREATE TABLE `role_hierarchy` (
 )engine=innodb comment = '父子权限表，parent_role_id 为 null 就代表是根节点，程序只允许管理员的 parent_role_id 为 null。';
 
 
+
+# 用户组
+DROP TABLE IF EXISTS `role_group_admin`;
+CREATE TABLE `role_group_admin` (
+                                    `group`  varchar(50)  NOT NULL,
+                                    `roles`  varchar(5000)  DEFAULT '',
+                                    `users`  varchar(5000)  DEFAULT '',
+                                    `separator`    varchar(10) DEFAULT '!@|@!',
+                                    PRIMARY KEY (`group`)
+)engine=innodb comment = '角色组表';
+
+
+DROP TABLE IF EXISTS `user_group_admin`;
+CREATE TABLE `user_group_admin` (
+                                    `group`  varchar(50)  NOT NULL,
+                                    `roles`  varchar(5000)  DEFAULT '',
+                                    `users`  varchar(5000)  DEFAULT '',
+                                    `separator`    varchar(10) DEFAULT '!@|@!',
+                                    PRIMARY KEY (`group`)
+)engine=innodb comment = '用户组表';
 
 

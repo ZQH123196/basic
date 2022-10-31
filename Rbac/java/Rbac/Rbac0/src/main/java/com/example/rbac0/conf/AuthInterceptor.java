@@ -2,11 +2,11 @@ package com.example.rbac0.conf;
 
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.example.rbac0.controller.ServiceCommon;
+import com.example.rbac0.service.ServiceCommon;
 import com.example.rbac0.dao.entity.Permission;
 import com.example.rbac0.dao.entity.Role;
 import com.example.rbac0.dao.entity.RolePermission;
-import com.example.rbac0.service.RolePermissionService;
+import com.example.rbac0.dao.service.RolePermissionService;
 import com.google.common.collect.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;

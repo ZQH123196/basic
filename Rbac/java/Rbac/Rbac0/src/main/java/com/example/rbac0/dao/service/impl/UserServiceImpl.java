@@ -1,9 +1,9 @@
-package com.example.rbac0withgroup.dao.service.impl;
+package com.example.rbac0.dao.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.example.rbac0withgroup.dao.entity.User;
-import com.example.rbac0withgroup.dao.mapper.UserMapper;
-import com.example.rbac0withgroup.dao.service.UserService;
+import com.example.rbac0.dao.entity.User;
+import com.example.rbac0.dao.mapper.UserMapper;
+import com.example.rbac0.dao.service.UserService;
 import org.springframework.stereotype.Service;
 
 @Service

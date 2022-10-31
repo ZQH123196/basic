@@ -2,11 +2,11 @@ package com.example.rbac0withhierarchy.conf;
 
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.example.rbac0withhierarchy.controller.ServiceCommon;
+import com.example.rbac0withhierarchy.dao.service.ServiceCommon;
 import com.example.rbac0withhierarchy.dao.entity.Permission;
 import com.example.rbac0withhierarchy.dao.entity.Role;
 import com.example.rbac0withhierarchy.dao.entity.RolePermission;
-import com.example.rbac0withhierarchy.service.RolePermissionService;
+import com.example.rbac0withhierarchy.dao.service.RolePermissionService;
 import com.google.common.collect.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;

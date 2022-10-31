@@ -1,18 +1,17 @@
 
 
-DROP DATABASE IF EXISTS `rbac0`;
-CREATE DATABASE  `rbac0` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+DROP DATABASE IF EXISTS `rbac0withgroup`;
+CREATE DATABASE  `rbac0withgroup` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 SET NAMES utf8mb4;
 
-USE `rbac0`;
+USE `rbac0withgroup`;
 
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
     `role`      varchar(50) NOT NULL,
-    `username`  varchar(50) NOT NULL,
     create_time datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     update_time datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
-    UNIQUE INDEX `idx_user_role` (`username` ASC, `role` ASC) USING BTREE
+    PRIMARY KEY (`role`)
 ) engine=innodb comment = '角色表';
 
 DROP TABLE IF EXISTS `user`;
@@ -47,8 +46,23 @@ CREATE TABLE `role_permission` (
 
 
 
+DROP TABLE IF EXISTS `role_group_admin`;
+CREATE TABLE `role_group_admin` (
+   `group`  varchar(50)  NOT NULL,
+   `roles`  varchar(5000)  DEFAULT '',
+   `users`  varchar(5000)  DEFAULT '',
+   `separator`    varchar(10) DEFAULT '!@|@!',
+   PRIMARY KEY (`group`)
+)engine=innodb comment = '角色组表';
 
 
-
+DROP TABLE IF EXISTS `user_group_admin`;
+CREATE TABLE `user_group_admin` (
+    `group`  varchar(50)  NOT NULL,
+    `roles`  varchar(5000)  DEFAULT '',
+    `users`  varchar(5000)  DEFAULT '',
+    `separator`    varchar(10) DEFAULT '!@|@!',
+    PRIMARY KEY (`group`)
+)engine=innodb comment = '用户组表';
 
 

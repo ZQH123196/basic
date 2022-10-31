@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.mpgenerator.d.rbac1.mapper.RoleGroupAdminMapper">
+<mapper namespace="com.example.rbac1.dao.mapper.RoleGroupAdminMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.example.mpgenerator.d.rbac1.entity.RoleGroupAdmin">
+    <resultMap id="BaseResultMap" type="com.example.rbac1.dao.entity.RoleGroupAdmin">
         <id column="group" property="group" />
-        <result column="roles" property="roles" />
-        <result column="users" property="users" />
+        <result column="roles" property="roles" typeHandler="com.example.rbac1.dao.handle.ListStringConvertHandle" />
+        <result column="users" property="users" typeHandler="com.example.rbac1.dao.handle.ListStringConvertHandle" />
         <result column="separator" property="separator" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        group, roles, users, separator
+        `group`, roles, users, `separator`
     </sql>
 
 </mapper>

@@ -1,47 +1,30 @@
-package com.sample;
+package com.example.rbac0withgroup.dao.entity;
 
 
-public class RoleGroupAdmin {
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.example.rbac0withgroup.dao.handle.ListStringConvertHandle;
+import lombok.Data;
 
-  private String group;
-  private String roles;
-  private String users;
-  private String separator;
+import java.util.List;
 
+@Data
+@TableName(autoResultMap = true)
+public class RoleGroupAdmin extends Model {
 
-  public String getGroup() {
-    return group;
-  }
+    @TableId("`group`")
+    private String group;
 
-  public void setGroup(String group) {
-    this.group = group;
-  }
+    @TableField(typeHandler = ListStringConvertHandle.class)
+    private List<String> roles;
 
+    @TableField(typeHandler = ListStringConvertHandle.class)
+    private List<String> users;
 
-  public String getRoles() {
-    return roles;
-  }
+    @TableField("`separator`")
+    private String separator;
 
-  public void setRoles(String roles) {
-    this.roles = roles;
-  }
-
-
-  public String getUsers() {
-    return users;
-  }
-
-  public void setUsers(String users) {
-    this.users = users;
-  }
-
-
-  public String getSeparator() {
-    return separator;
-  }
-
-  public void setSeparator(String separator) {
-    this.separator = separator;
-  }
 
 }

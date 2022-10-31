@@ -1,4 +1,4 @@
-package com.example.rabc1.conf;
+package com.example.rbac1.conf;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

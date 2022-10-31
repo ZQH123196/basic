@@ -4,7 +4,7 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:mysql://localhost:3306/rbac0
+    url: jdbc:mysql://localhost:3306/mysql
     username: root
     password: password
     driverClassName: com.mysql.cj.jdbc.Driver

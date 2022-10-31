@@ -1,7 +1,7 @@
-package com.example.rbac0withgroup.dao.service;
+package com.example.rbac0.dao.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.example.rbac0withgroup.dao.entity.RoleUser;
+import com.example.rbac0.dao.entity.RoleUser;
 
 import java.util.Set;
 

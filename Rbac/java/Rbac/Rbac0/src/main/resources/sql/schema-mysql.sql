@@ -9,10 +9,9 @@ USE `rbac0`;
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
     `role`      varchar(50) NOT NULL,
-    `username`  varchar(50) NOT NULL,
     create_time datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     update_time datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
-    UNIQUE INDEX `idx_user_role` (`username` ASC, `role` ASC) USING BTREE
+    PRIMARY KEY (`role`)
 ) engine=innodb comment = '角色表';
 
 DROP TABLE IF EXISTS `user`;

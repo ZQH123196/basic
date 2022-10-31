@@ -4,15 +4,14 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.example.rbac0withhierarchy.dao.entity.*;
 import com.example.rbac0withhierarchy.dao.mapper.PermissionMapper;
-import com.example.rbac0withhierarchy.dao.mapper.RoleMapper;
+import com.example.rbac0withhierarchy.dao.mapper.RoleHierarchyMapper;
+import com.example.rbac0withhierarchy.dao.service.ServiceCommon;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("Auth")
@@ -28,8 +27,8 @@ public class AuthController {
     PermissionMapper permissionMapper;
 
 
-//    @Resource
-//    HierarchyMapper hierarchyMapper;
+    @Resource
+    RoleHierarchyMapper roleHierarchyMapper;
 
 
     @PostMapping("login")
@@ -88,11 +87,35 @@ public class AuthController {
     }
 
 
+    @PostMapping("getAllRoletHierarchyInfo")
+    public Map<String, Map> getAllRoletHierarchyInfo() {
+        return serviceCommon.getAllRoletHierarchyInfo();
+    }
+
+
+    /**
+     * 获取当前角色父子级的继承关系
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    @PostMapping("getCurRoletHierarchyInfo")
+    public String getCurRoletHierarchyInfo(@RequestHeader String username, @RequestHeader String password) {
+
+        // 获取角色用户关联关系
+        List<RoleUser> roleUsers = serviceCommon.getRoleUsers(username);
+        // 遍历每个
+
+
+        return null;
+    }
+
     @PostMapping("addRoleWithParent")
     public String addRoleWithParent(@RequestHeader String username, @RequestHeader String password) {
 
 
-//        hierarchyMapper.insert();
+//        roleHierarchyMapper
 
         return null;
     }

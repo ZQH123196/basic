@@ -1,4 +1,4 @@
-package com.sample;
+package com.example.rbac0withgroup.dao.entity;
 
 
 public class UserGroupAdmin {

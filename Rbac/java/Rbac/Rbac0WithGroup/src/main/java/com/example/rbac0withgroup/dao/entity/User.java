@@ -1,4 +1,4 @@
-package com.example.rbac0.dao.entity;
+package com.example.rbac0withgroup.dao.entity;
 
 
 import com.baomidou.mybatisplus.annotation.TableId;

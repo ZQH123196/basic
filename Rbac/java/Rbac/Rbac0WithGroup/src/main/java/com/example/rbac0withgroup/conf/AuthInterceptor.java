@@ -1,13 +1,15 @@
-package com.example.rbac0.conf;
+package com.example.rbac0withgroup.conf;
 
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.example.rbac0.controller.ServiceCommon;
-import com.example.rbac0.dao.entity.Permission;
-import com.example.rbac0.dao.entity.Role;
-import com.example.rbac0.dao.entity.RolePermission;
-import com.example.rbac0.service.RolePermissionService;
-import com.google.common.collect.*;
+import com.example.rbac0withgroup.service.impl.ServiceCommonImpl;
+import com.example.rbac0withgroup.dao.entity.Permission;
+import com.example.rbac0withgroup.dao.entity.Role;
+import com.example.rbac0withgroup.dao.entity.RolePermission;
+import com.example.rbac0withgroup.dao.service.RolePermissionService;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Component;
@@ -18,7 +20,9 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Component
@@ -70,7 +74,7 @@ class AuthInterceptor implements HandlerInterceptor {
     TransactionDefinition transactionDefinition;
 
     @Resource
-    ServiceCommon serviceCommon;
+    ServiceCommonImpl serviceCommonImpl;
 
 
     @Resource
@@ -85,7 +89,7 @@ class AuthInterceptor implements HandlerInterceptor {
         TransactionStatus trStatus = trManager.getTransaction(transactionDefinition);
 
         try {
-            HashMap<String, List<Permission>> rolePermMap = serviceCommon.getRolePerm(adminRole.getRole());
+            HashMap<String, List<Permission>> rolePermMap = serviceCommonImpl.getRolePerm(adminRole.getRole());
             List<Permission> allPermissionList = new Permission().selectAll().stream().collect(Collectors.toList());
             List<Permission> curAdminPermList = rolePermMap.get(adminRole.getRole());
             if (allPermissionList == null) {

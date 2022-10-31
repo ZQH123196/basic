@@ -1,4 +1,4 @@
-package com.example.rabc1.dao.service.impl;
+package com.example.rbac1.dao.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.rbac1.dao.entity.Role;

@@ -1,4 +1,4 @@
-package com.example.rabc1.dao.handle;
+package com.example.rbac1.dao.handle;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;

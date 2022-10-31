@@ -1,12 +1,10 @@
-package com.example.rabc1.impl;
+package com.example.rbac1.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.example.rbac1.dao.entity.Permission;
-import com.example.rbac1.dao.entity.RolePermission;
-import com.example.rbac1.dao.entity.RoleUser;
-import com.example.rbac1.dao.entity.User;
+import com.example.rbac1.dao.entity.*;
 import com.example.rbac1.dao.mapper.PermissionMapper;
+import com.example.rbac1.dao.mapper.RoleHierarchyMapper;
 import com.example.rbac1.dao.mapper.RolePermissionMapper;
 import com.example.rbac1.dao.mapper.RoleUserMapper;
 import com.google.common.collect.Maps;
@@ -14,7 +12,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,6 +25,41 @@ public class ServiceCommonImpl {
     RolePermissionMapper rolePermissionMapper;
     @Resource
     PermissionMapper permissionMapper;
+
+    @Resource
+    RoleHierarchyMapper roleHierarchyMapper;
+
+    public Map<String, Map> getAllRoletHierarchyInfo() {
+
+        LambdaQueryWrapper<RoleHierarchy> wrapper = Wrappers.lambdaQuery();
+        wrapper.isNull(RoleHierarchy::getParentRoleId);
+
+        // 得到所有根节点
+        List<RoleHierarchy> roots = roleHierarchyMapper.selectList(wrapper);
+        Map<String, Map> hierarchyMap = new LinkedHashMap<>();
+        for (RoleHierarchy root : roots) {
+            getTreeByRecursion(root, hierarchyMap);
+
+        }
+        return hierarchyMap;
+    }
+
+    public void getTreeByRecursion(RoleHierarchy hierarchy, Map hierarchyMap) {
+        LambdaQueryWrapper<RoleHierarchy> wrapperL1 = Wrappers.lambdaQuery();
+        wrapperL1.eq(RoleHierarchy::getParentRoleId, hierarchy.getRole());
+        List<RoleHierarchy> childList = roleHierarchyMapper.selectList(wrapperL1);
+        if (childList.size() == 0) {
+            return;
+        } else {
+            Map<String, Map<Object, Object>> childHierarchyMap = childList.stream().map(v -> v.getRole()).collect(Collectors.toMap(r -> r, v -> new HashMap<>()));
+            hierarchyMap.put(hierarchy.getRole(), childHierarchyMap);
+            for (RoleHierarchy roleHierarchy : childList) {
+                getTreeByRecursion(roleHierarchy, childHierarchyMap);
+            }
+        }
+
+    }
+
 
     public List<RoleUser> getRoleUsers(String username) {
         User user = new User().selectById(username);

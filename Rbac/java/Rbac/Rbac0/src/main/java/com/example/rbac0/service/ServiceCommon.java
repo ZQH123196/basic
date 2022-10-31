@@ -1,4 +1,4 @@
-package com.example.rbac0.controller;
+package com.example.rbac0.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

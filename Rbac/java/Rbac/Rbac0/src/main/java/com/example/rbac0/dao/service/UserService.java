@@ -1,10 +1,7 @@
-package com.example.rbac0withgroup.dao.service;
+package com.example.rbac0.dao.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.example.rbac0withgroup.dao.entity.RoleUser;
-import com.example.rbac0withgroup.dao.entity.User;
-
-import java.util.Set;
+import com.example.rbac0.dao.entity.User;
 
 public interface UserService extends IService<User> {
 }

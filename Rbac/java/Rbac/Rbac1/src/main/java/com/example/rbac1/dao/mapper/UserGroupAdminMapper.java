@@ -1,7 +1,7 @@
-package com.example.mpgenerator.d.rbac1.mapper;
+package com.example.rbac1.dao.mapper;
 
-import com.example.mpgenerator.d.rbac1.entity.UserGroupAdmin;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.rbac1.dao.entity.UserGroupAdmin;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

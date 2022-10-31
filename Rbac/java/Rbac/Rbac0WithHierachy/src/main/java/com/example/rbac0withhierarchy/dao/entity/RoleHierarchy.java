@@ -1,4 +1,4 @@
-package com.sample;
+package com.example.rbac0withhierarchy.dao.entity;
 
 
 public class RoleHierarchy {

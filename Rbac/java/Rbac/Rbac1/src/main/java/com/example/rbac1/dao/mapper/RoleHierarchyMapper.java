@@ -1,8 +1,7 @@
-package com.example.rbac0withhierarchy.dao.mapper;
+package com.example.rbac1.dao.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.example.rbac0withhierarchy.dao.entity.Permission;
-import com.example.rbac0withhierarchy.dao.entity.RoleHierarchy;
+import com.example.rbac1.dao.entity.RoleHierarchy;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

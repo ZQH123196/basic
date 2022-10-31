@@ -1,4 +1,4 @@
-package com.example.mpgenerate;
+package com.example.mpgenerator;
 
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
@@ -10,6 +10,8 @@ import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import com.baomidou.mybatisplus.generator.fill.Column;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 
@@ -18,12 +20,12 @@ public class CodeGenerator {
     /**
      * 数据库连接字符
      */
-    private static final String URL = "！！需要填写！！";
+    private static final String URL = "jdbc:mysql://localhost:3306/rbac1";
 
     /**
      * 示例：private static final String PARENT_PACKAGE_NAME = "com.example.mybatisplusdemo";
      */
-    private static final String PARENT_PACKAGE_NAME = "！！需要填写！！";
+    private static final String PARENT_PACKAGE_NAME = "com.example.mpgenerator.d";
 
     /**
      * 数据库用户名
@@ -32,11 +34,11 @@ public class CodeGenerator {
     /**
      * 数据库密码
      */
-    private static final String PASSWORD = "123456";
+    private static final String PASSWORD = "password";
     /**
      * 项目根路径
      */
-    private static final String PROJECT_ROOT_PATH = System.getProperty("user.dir");
+    private static final String PROJECT_ROOT_PATH = "./";
 
     /**
      * 执行此处
@@ -46,12 +48,16 @@ public class CodeGenerator {
         simpleGenerator();
         // 完整示例，适用于多模块项目
 //        completeGenerator();
+        System.out.println("生成位置："+ Paths.get(PROJECT_ROOT_PATH).toAbsolutePath());
+
+
     }
 
     /**
      * 【单模块】简单的实现方案
      */
     protected static void simpleGenerator() {
+
 
         // 包路径
         String packagePath = PROJECT_ROOT_PATH + "/src/main/java";
@@ -63,7 +69,7 @@ public class CodeGenerator {
                 // 1. 全局配置
                 .globalConfig(builder -> builder
                         // 作者名称
-                        .author("橘子")
+                        .author("zqh")
                         // 开启覆盖已生成的文件。注释掉则关闭覆盖。
                         .fileOverride()
                         // 禁止打开输出目录。注释掉则生成完毕后，自动打开生成的文件目录。
@@ -119,7 +125,7 @@ public class CodeGenerator {
                         // 会在控制类中加[@RestController]注解。
                         .enableRestStyle()
                         // 开启驼峰转连字符
-                        .enableHyphenStyle()
+//                        .enableHyphenStyle()
                         .build()
                 )
 

@@ -1,4 +1,4 @@
-package com.example.rabc1.impl;
+package com.example.rbac1.service.impl;
 
 import com.example.rbac1.dao.service.RoleGroupAdminService;
 import com.example.rbac1.dao.service.RoleService;

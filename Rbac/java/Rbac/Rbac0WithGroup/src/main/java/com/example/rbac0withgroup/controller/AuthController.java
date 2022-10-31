@@ -1,12 +1,18 @@
-package com.example.rbac0.controller;
+package com.example.rbac0withgroup.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.example.rbac0.dao.entity.*;
-import com.example.rbac0.dao.mapper.PermissionMapper;
+import com.example.rbac0withgroup.dao.entity.Permission;
+import com.example.rbac0withgroup.dao.entity.RoleUser;
+import com.example.rbac0withgroup.dao.entity.User;
+import com.example.rbac0withgroup.dao.mapper.PermissionMapper;
+import com.example.rbac0withgroup.service.impl.ServiceCommonImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -21,7 +27,7 @@ public class AuthController {
     ObjectMapper objectMapper;
 
     @Resource
-    ServiceCommon serviceCommon;
+    ServiceCommonImpl serviceCommonImpl;
 
     @Resource
     PermissionMapper permissionMapper;
@@ -45,7 +51,7 @@ public class AuthController {
      */
     @PostMapping("doSomeByRoleAdmin")
     public String doSomeByRoleAdmin(@RequestHeader String username, @RequestHeader String password) {
-        List<RoleUser> roleUsers = serviceCommon.getRoleUsers(username);
+        List<RoleUser> roleUsers = serviceCommonImpl.getRoleUsers(username);
         for (RoleUser roleUser : roleUsers) {
             if (roleUser.getRole().equals("admin")) {
                 return "操作成功！";
@@ -64,7 +70,7 @@ public class AuthController {
      */
     @PostMapping("addRoleByPerm")
     public String addRoleByPerm(@RequestHeader String username, @RequestHeader String password) {
-        List<RoleUser> roleUsers = serviceCommon.getRoleUsers(username);
+        List<RoleUser> roleUsers = serviceCommonImpl.getRoleUsers(username);
 
         String needPermEl = "system:role:create";
         LambdaQueryWrapper<Permission> wrapper = Wrappers.<Permission>lambdaQuery().eq(Permission::getExpression, needPermEl);
@@ -73,7 +79,7 @@ public class AuthController {
             return String.format("数据库并无权限[%s]的定义！", needPermEl);
         }
 
-        HashMap<RoleUser, List<String>> rolePermMap = serviceCommon.getRolePerm(roleUsers);
+        HashMap<RoleUser, List<String>> rolePermMap = serviceCommonImpl.getRolePerm(roleUsers);
         for (Map.Entry<RoleUser, List<String>> roleKey : rolePermMap.entrySet()) {
             if (rolePermMap.get(roleKey.getKey()).contains(needPermEl)) {
                 return "操作成功！";

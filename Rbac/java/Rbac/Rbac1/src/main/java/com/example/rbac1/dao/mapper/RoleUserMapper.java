@@ -1,4 +1,4 @@
-package com.example.rabc1.dao.mapper;
+package com.example.rbac1.dao.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.rbac1.dao.entity.RoleUser;

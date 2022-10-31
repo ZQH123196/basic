@@ -1,11 +1,11 @@
-package com.example.rabc1.conf;
+package com.example.rbac1.conf;
 
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.example.rbac1.dao.entity.Permission;
 import com.example.rbac1.dao.entity.Role;
 import com.example.rbac1.dao.entity.RolePermission;
-import com.example.rbac1.dao.service.RolePermissionService;
+import com.example.rbac1.dao.service.impl.RolePermissionServiceImpl;
 import com.example.rbac1.service.impl.ServiceCommonImpl;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
@@ -78,7 +78,7 @@ class AuthInterceptor implements HandlerInterceptor {
 
 
     @Resource
-    RolePermissionService rolePermissionService;
+    RolePermissionServiceImpl rolePermissionService;
 
     /**
      * 确保本次进入时，admin 能获取当前时刻所有的权限
@@ -99,11 +99,11 @@ class AuthInterceptor implements HandlerInterceptor {
                 curAdminPermList = Lists.newArrayList();
             }
 
-            Set<Long> allPermMap = allPermissionList.stream().map(p -> p.getId()).collect(Collectors.toSet());
-            Set<Long> curPermMap = curAdminPermList.stream().map(p -> p.getId()).collect(Collectors.toSet());
+            Set<Integer> allPermMap = allPermissionList.stream().map(p -> p.getId()).collect(Collectors.toSet());
+            Set<Integer> curPermMap = curAdminPermList.stream().map(p -> p.getId()).collect(Collectors.toSet());
 
             // 取在左不在右的集合
-            ImmutableSet<Long> diffPermSet = Sets.difference(allPermMap, curPermMap).immutableCopy();
+            ImmutableSet<Integer> diffPermSet = Sets.difference(allPermMap, curPermMap).immutableCopy();
             Set<RolePermission> beUpdatePermList = diffPermSet.stream()
                     .map(pid -> RolePermission
                             .builder()
