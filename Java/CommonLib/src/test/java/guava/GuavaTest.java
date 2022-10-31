@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import static org.junit.Assert.*;
 
 public class GuavaTest {
 
@@ -181,7 +182,25 @@ public class GuavaTest {
         System.out.printf("immutableList: %s\n", immutableList);
     }
 
+    /**
+     * difference(a, b) 返回包含在 a 但是不包含在 b 中的值。
+     */
+    @Test
+    public void differentMapSet() {
+        HashSet<@Nullable String> hashSetA = Sets.newHashSet("a", "c");
+        HashSet<@Nullable String> hashSetB = Sets.newHashSet("a", "b", "d");
 
+        Sets.SetView<@Nullable String> difference4A = Sets.difference(hashSetA, hashSetB);
+        Sets.SetView<@Nullable String> difference4B = Sets.difference(hashSetB, hashSetA);
+        System.out.println(difference4A);
+        System.out.println(difference4B);
+
+        assertTrue(difference4A.contains("c"));
+        assertTrue(difference4B.contains("b") && difference4B.contains("d"));
+
+//        Maps.difference();
+    }
+    
     /**
      * 找两个 map 的差异数据
      * 场景：对账
