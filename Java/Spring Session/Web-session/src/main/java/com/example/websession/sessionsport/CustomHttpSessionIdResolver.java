@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-/** 自定义Session解析器
- * 官方实现了Cookie和 Session的解析，但在实际的项目中，还会遇到 token 拼接到 URL 上的情况，
- * 这时候可以实现 HttpSessionIdResolver 接口，可以参考官方 org.springframework.session.web.http.CookieHttpSessionIdResolver。
+/**
+ * 自定义 Session解析器
+ * 官方实现了 Cookie 和 Session 的解析，但在实际的项目中，还会遇到 token 拼接到 URL 上的情况，
+ * 这时候可以自己实现 HttpSessionIdResolver 接口，可以参考官方 org.springframework.session.web.http.CookieHttpSessionIdResolver。
  * 支持 sessionId 存到 cookie，header 和 request parameter
  */
 @Slf4j
