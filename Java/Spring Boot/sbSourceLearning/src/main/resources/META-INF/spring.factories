@@ -1,0 +1,2 @@
+org.springframework.context.ApplicationContextInitializer=com.example.sbsourcelearning.initialize.FirstInitializer
+org.springframework.context.ApplicationListener=com.example.sbsourcelearning.event.MyPrepareContextEnv, com.example.sbsourcelearning.listener.FirstListener, com.example.sbsourcelearning.listener.FourthListener
