@@ -1,19 +1,59 @@
 package com.example.tree.service.vo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Map;
+import java.util.List;
 
-public class MultipleTreeMap {
+/**
+ *
+ * 结构形如：
+ * [
+ *     {
+ *         "nodeName": "A",
+ *         "nodePath": "A",
+ *         "children": [
+ *             {
+ *                 "nodeName": "B",
+ *                 "nodePath": "AB"
+ *             },
+ *             {
+ *                 "nodeName": "C",
+ *                 "nodePath": "AC",
+ *                 "children": [
+ *                     {
+ *                         "nodeName": "D",
+ *                         "nodePath": "ACD"
+ *                     },
+ *                     {
+ *                         "nodeName": "E",
+ *                         "nodePath": "ACE"
+ *                     },
+ *                     {
+ *                         "nodeName": "F",
+ *                         "nodePath": "ACF",
+ *                         "children": [
+ *                             {
+ *                                 "nodeName": "G",
+ *                                 "nodePath": "ACFG"
+ *                             }
+ *                         ]
+ *                     }
+ *                 ]
+ *             }
+ *         ]
+ *     }
+ * ]
+ */
+public class MultipleTreeList {
 
-    /**
-     * 每一个 key 都代表一棵树的 root
-     */
-    @JsonProperty("MultipleTreeMap")
-    private Map<String, TreeNodeVo> treeNodeVoMap;
 
-    MultipleTreeMap(Map<String, TreeNodeVo> treeNodeVoMap) {
-        this.treeNodeVoMap = treeNodeVoMap;
+    @JsonProperty("TreeNodeVoList")
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private List<TreeNodeVoList> treeNodeVoMapList;
+
+    MultipleTreeList(List<TreeNodeVoList> treeNodeVoMapList) {
+        this.treeNodeVoMapList = treeNodeVoMapList;
     }
 
     public static MultipleTreeBuilder builder() {
@@ -22,22 +62,22 @@ public class MultipleTreeMap {
 
 
     public static class MultipleTreeBuilder {
-        private Map<String, TreeNodeVo> treeNodeVoMap;
+        private List<TreeNodeVoList> treeNodeVoMapList;
 
         MultipleTreeBuilder() {
         }
 
-        public MultipleTreeBuilder treeNodeVoMap(Map<String, TreeNodeVo> treeNodeVoMap) {
-            this.treeNodeVoMap = treeNodeVoMap;
+        public MultipleTreeBuilder treeNodeVoList(List<TreeNodeVoList> treeNodeVoMapList) {
+            this.treeNodeVoMapList = treeNodeVoMapList;
             return this;
         }
 
-        public MultipleTreeMap build() {
-            return new MultipleTreeMap(treeNodeVoMap);
+        public MultipleTreeList build() {
+            return new MultipleTreeList(treeNodeVoMapList);
         }
 
         public String toString() {
-            return "MultipleTree.MultipleTreeBuilder(treeNodeVoMap=" + this.treeNodeVoMap + ")";
+            return "MultipleTree.MultipleTreeBuilder(treeNodeVoList=" + this.treeNodeVoMapList + ")";
         }
     }
 }

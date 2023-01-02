@@ -15,7 +15,7 @@ import java.net.URLClassLoader;
  * 实现隔离允许指定 jar 包，主要需要做到以下几点：
  * <p>
  * 自定义 ClassLoader，使其 Parent = null，避免其使用系统自带的 ClassLoader 加载 Class。
- * 在调用相应版本的方法前，更改当前线程的 ContextClassLoader，避免扩展包的依赖包通过Thread.currentThread().getContextClassLoader()获取到非自定义的 ClassLoader 进行类加载
+ * 在调用相应版本的方法前，更改当前线程的 ContextClassLoader，避免扩展包的依赖包通过 Thread.currentThread().getContextClassLoader() 获取到非自定义的 ClassLoader 进行类加载
  * 通过反射获取 Method 时，如果参数为自定义的类型，一定要使用自定义的 ClassLoader 加载参数获取 Class，然后在获取 Method，同时参数也必须转化为使用自定义的 ClassLoade 加载的类型（不同 ClassLoader 加载的同一个类不相等）
  * （1）、根类加载器(Bootstrap) --C++写的，看不到源码
  * （2）、扩展类加载器（Extension） --加载位置 ：jre\lib\ext 中
@@ -23,9 +23,9 @@ import java.net.URLClassLoader;
  * （4）、自定义加载器(必须继承 ClassLoader)
  *
  * 类加载有三种方式：
- * 1、命令行启动应用时候由JVM初始化加载
- * 2、通过Class.forName()方法动态加载
- * 3、通过ClassLoader.loadClass()方法动态加载
+ * 1、命令行启动应用时候由 JVM 初始化加载
+ * 2、通过 Class.forName() 方法动态加载
+ * 3、通过 ClassLoader.loadClass() 方法动态加载
 
  */
 public class multipleJar {

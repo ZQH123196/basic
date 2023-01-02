@@ -1,0 +1,38 @@
+{
+    "TreeNodeVoList": [
+        {
+            "nodeName": "A",
+            "nodePath": "A",
+            "children": [
+                {
+                    "nodeName": "B",
+                    "nodePath": "AB"
+                },
+                {
+                    "nodeName": "C",
+                    "nodePath": "AC",
+                    "children": [
+                        {
+                            "nodeName": "D",
+                            "nodePath": "ACD"
+                        },
+                        {
+                            "nodeName": "E",
+                            "nodePath": "ACE"
+                        },
+                        {
+                            "nodeName": "F",
+                            "nodePath": "ACF",
+                            "children": [
+                                {
+                                    "nodeName": "G",
+                                    "nodePath": "ACFG"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

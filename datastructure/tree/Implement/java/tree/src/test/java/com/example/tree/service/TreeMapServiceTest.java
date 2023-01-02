@@ -15,13 +15,10 @@ import javax.annotation.Resource;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
 
 @SpringBootTest
 @Slf4j
-class TreeService4PathEnumTest {
+class TreeMapServiceTest {
 
 
     @Resource
@@ -29,6 +26,7 @@ class TreeService4PathEnumTest {
 
     @Resource
     ITreeMapService treeMapService;
+
 
     @Test
     void getAllTree() {

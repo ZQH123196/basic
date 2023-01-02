@@ -1,0 +1,38 @@
+{
+    "MultipleTreeMap": {
+        "A": {
+            "nodeName": "A",
+            "nodePath": "A",
+            "children": {
+                "B": {
+                    "nodeName": "B", 
+                    "nodePath": "AB"
+                },
+                "C": {
+                    "nodeName": "C",
+                    "nodePath": "AC",
+                    "children": {
+                        "D": {
+                            "nodeName": "D",
+                            "nodePath": "ACD"
+                        },
+                        "E": {
+                            "nodeName": "E",
+                            "nodePath": "ACE"
+                        },
+                        "F": {
+                            "nodeName": "F",
+                            "nodePath": "ACF",
+                            "children": {
+                                "G": {
+                                    "nodeName": "G",
+                                    "nodePath": "ACFG"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

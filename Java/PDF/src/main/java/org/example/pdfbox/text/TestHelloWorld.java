@@ -1,4 +1,4 @@
-package org.example.pdfbox;
+package org.example.pdfbox.text;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one or more
@@ -46,7 +46,7 @@ public class TestHelloWorld
     {
         String outputFile = OUTPUT_DIR + "/HelloWorldTTF.pdf";
         String message = "HelloWorldTTF.pdf";
-        String fontFile = "../resources/ttf/LiberationSans-Regular.ttf";
+        String fontFile = "src/main/resources/ttf/LiberationSans-Regular.ttf";
 
         new File(outputFile).delete();
 
@@ -55,7 +55,6 @@ public class TestHelloWorld
 
         checkOutputFile(outputFile, message);
 
-//        new File(outputFile).delete();
     }
 
     @Test
@@ -72,7 +71,6 @@ public class TestHelloWorld
 
         checkOutputFile(outputFile, message);
 
-        new File(outputFile).delete();
     }
 
     private void checkOutputFile(String outputFile, String message) throws IOException

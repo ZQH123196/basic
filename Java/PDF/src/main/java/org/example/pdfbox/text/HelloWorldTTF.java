@@ -15,15 +15,16 @@
  * limitations under the License.
  */
 
-package org.apache.pdfbox.examples.pdmodel;
+package org.example.pdfbox.text;
 
-import java.io.File;
-import java.io.IOException;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType0Font;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Creates a simple document with a TrueType font.

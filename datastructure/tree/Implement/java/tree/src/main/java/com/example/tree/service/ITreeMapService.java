@@ -6,7 +6,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.util.List;
 
-public interface ITreeService {
+public interface ITreeMapService {
 
     /**
      * 获取所有树
@@ -18,7 +18,7 @@ public interface ITreeService {
      *
      * @return
      */
-    MultipleTreeMap getTargetNodeChildren(String nodeName) throws JsonProcessingException;
+    MultipleTreeMap getTargetNodeChildren(String nodeName);
 
     /**
      * 根据根节点获取树
@@ -26,7 +26,7 @@ public interface ITreeService {
      *
      * @return
      */
-    MultipleTreeMap getTreeByRoot(String rootName) throws JsonProcessingException;
+    MultipleTreeMap getTreeByRoot(String rootName);
 
     /**
      * 获取一颗树的任意某一层级

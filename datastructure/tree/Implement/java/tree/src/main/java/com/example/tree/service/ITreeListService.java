@@ -1,24 +1,25 @@
 package com.example.tree.service;
 
 import com.example.tree.dao.entity.TreeNode;
-import com.example.tree.service.vo.MultipleTreeMap;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.example.tree.service.vo.MultipleTreeList;
 
 import java.util.List;
 
-public interface ITreeMapService {
+public interface ITreeListService {
 
     /**
      * 获取所有树
+     *
+     * @return
      */
-    void getMultipleTree();
+    MultipleTreeList getMultipleTree();
 
     /**
      * 获取目标节点的所有子树，也可用于获取一棵树的全部
      *
      * @return
      */
-    MultipleTreeMap getTargetNodeChildren(String nodeName) throws JsonProcessingException;
+    MultipleTreeList getTargetNodeChildren(String nodeName);
 
     /**
      * 根据根节点获取树
@@ -26,7 +27,7 @@ public interface ITreeMapService {
      *
      * @return
      */
-    MultipleTreeMap getTreeByRoot(String rootName) throws JsonProcessingException;
+    MultipleTreeList getTreeByRoot(String rootName);
 
     /**
      * 获取一颗树的任意某一层级

@@ -14,17 +14,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.pdfbox.examples.pdmodel;
-
-import java.io.IOException;
+package org.example.pdfbox.text;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
-
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
-
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
+
+import java.io.IOException;
 
 /**
  * Creates a "Hello World" PDF using the built-in Helvetica font.

@@ -15,9 +15,8 @@
  * limitations under the License.
  */
 
-package org.apache.pdfbox.examples.interactive.form;
+package org.example.pdfbox.form;
 
-import java.io.IOException;
 import org.apache.pdfbox.cos.COSDictionary;
 import org.apache.pdfbox.cos.COSName;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -26,6 +25,7 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.PDResources;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDFont;
+import org.apache.pdfbox.pdmodel.font.PDType0Font;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
 import org.apache.pdfbox.pdmodel.graphics.color.PDDeviceRGB;
@@ -34,6 +34,9 @@ import org.apache.pdfbox.pdmodel.interactive.annotation.PDAppearanceCharacterist
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDTextField;
 import org.apache.pdfbox.pdmodel.interactive.form.PDVariableText;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * An example of creating an AcroForm and a form field from scratch.
@@ -63,6 +66,9 @@ public final class CreateSimpleForm
         
         // Add a new AcroForm and add that to the document
         PDAcroForm acroForm = new PDAcroForm(document);
+        acroForm.setNeedAppearances(true);
+        acroForm.refreshAppearances();
+        acroForm.flatten();
         document.getDocumentCatalog().setAcroForm(acroForm);
         
         // Add and set the resources and default appearance at the form level

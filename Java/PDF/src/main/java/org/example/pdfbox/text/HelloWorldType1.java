@@ -15,16 +15,17 @@
  * limitations under the License.
  */
 
-package org.apache.pdfbox.examples.pdmodel;
+package org.example.pdfbox.text;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Creates a simple document with a Type 1 font (.pfb).

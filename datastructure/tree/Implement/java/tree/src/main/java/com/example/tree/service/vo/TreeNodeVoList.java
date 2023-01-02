@@ -5,10 +5,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 
+import java.util.List;
 import java.util.Map;
 
 @Getter
-public class TreeNodeVoMap {
+public class TreeNodeVoList {
 
     @JsonProperty("nodeName")
     private String nodeName;
@@ -18,29 +19,29 @@ public class TreeNodeVoMap {
 
     @JsonProperty("children")
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    private Map<String, TreeNodeVoMap> children;
+    private List<TreeNodeVoList> children;
 
-    public TreeNodeVoMap(TreeNode treeNode) {
+    public TreeNodeVoList(TreeNode treeNode) {
         this.nodeName = treeNode.getNodeName();
         this.nodePath = treeNode.getPathString();
     }
 
-    public TreeNodeVoMap(String nodeName, String nodePath, Map<String, TreeNodeVoMap> children) {
+    public TreeNodeVoList(String nodeName, String nodePath, List<TreeNodeVoList> children) {
         this.nodeName = nodeName;
         this.nodePath = nodePath;
         this.children = children;
     }
 
-    public void setChildren(Map<String, TreeNodeVoMap> children) {
+    public void setChildren(List<TreeNodeVoList> children) {
         this.children = children;
     }
 
-    public Map<String, TreeNodeVoMap> getChildren() {
+    public List<TreeNodeVoList> getChildren() {
         return children;
     }
 
     public void addChildren(TreeNode treeNode) {
-        this.children.put(treeNode.getNodeName(), new TreeNodeVoMap(treeNode));
+        this.children.add(new TreeNodeVoList(treeNode));
     }
 
     public static TreeNodeVoBuilder builder() {
@@ -53,7 +54,7 @@ public class TreeNodeVoMap {
     public static class TreeNodeVoBuilder {
         private String nodeName;
         private String nodePath;
-        private Map<String, TreeNodeVoMap> children;
+        private List<TreeNodeVoList> children;
 
         TreeNodeVoBuilder() {
         }
@@ -68,13 +69,13 @@ public class TreeNodeVoMap {
             return this;
         }
 
-        public TreeNodeVoBuilder children(Map<String, TreeNodeVoMap> children) {
+        public TreeNodeVoBuilder children(List<TreeNodeVoList> children) {
             this.children = children;
             return this;
         }
 
-        public TreeNodeVoMap build() {
-            return new TreeNodeVoMap(nodeName, nodePath, children);
+        public TreeNodeVoList build() {
+            return new TreeNodeVoList(nodeName, nodePath, children);
         }
 
         public String toString() {
