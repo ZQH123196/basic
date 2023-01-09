@@ -1,0 +1,21 @@
+
+
+
+
+
+
+
+
+
+# cmd
+# 设定搜索浏览器的路径
+set PLAYWRIGHT_BROWSERS_PATH=D:\Code\Project\my-playwright\local-browsers
+
+npx playwright test --headed --workers 1
+
+
+
+
+
+
+

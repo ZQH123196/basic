@@ -7,12 +7,12 @@ specifiers:
   vue: ^3.2.37
   vue-router: ^4.1.5
   vue-tsc: ^0.40.4
-  wujie-vue3: 1.0.0-rc.21
+  wujie-vue3: 1.0.4
 
 dependencies:
   vue: registry.npmmirror.com/vue/3.2.40
   vue-router: registry.npmmirror.com/vue-router/4.1.5_vue@3.2.40
-  wujie-vue3: registry.npmmirror.com/wujie-vue3/1.0.0-rc.21_vue@3.2.40
+  wujie-vue3: registry.npmmirror.com/wujie-vue3/1.0.4_vue@3.2.40
 
 devDependencies:
   '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/3.1.2_vite@3.1.7+vue@3.2.40
@@ -740,22 +740,22 @@ packages:
       '@vue/server-renderer': registry.npmmirror.com/@vue/server-renderer/3.2.40_vue@3.2.40
       '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.40
 
-  registry.npmmirror.com/wujie-vue3/1.0.0-rc.21_vue@3.2.40:
-    resolution: {integrity: sha512-cldxruUymYsfgk9DjMx3hTer8dtcNlJlWU1bXkGDQQvpcHT2NQ41rMiEjLg5LsM18RaZis5n6FMd0A2xCbvp4A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/wujie-vue3/-/wujie-vue3-1.0.0-rc.21.tgz}
-    id: registry.npmmirror.com/wujie-vue3/1.0.0-rc.21
+  registry.npmmirror.com/wujie-vue3/1.0.4_vue@3.2.40:
+    resolution: {integrity: sha512-fCabgyOz/DUYAVjwkVEnulXR+gAAQiyzLAxEt2fW6dhLbAcwbOmstTtURO8IoXUrbMaNkLQK/SvvM7LCVkXzwg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/wujie-vue3/-/wujie-vue3-1.0.4.tgz}
+    id: registry.npmmirror.com/wujie-vue3/1.0.4
     name: wujie-vue3
-    version: 1.0.0-rc.21
+    version: 1.0.4
     peerDependencies:
       vue: ^3.0.0
     dependencies:
       vue: registry.npmmirror.com/vue/3.2.40
-      wujie: registry.npmmirror.com/wujie/1.0.0-rc.21
+      wujie: registry.npmmirror.com/wujie/1.0.4
     dev: false
 
-  registry.npmmirror.com/wujie/1.0.0-rc.21:
-    resolution: {integrity: sha512-CHRDUKnt8I4foZErfjI/imzuZRfOceu5HPu6yc2e52Va6fFF11HOO1uNgoKp0IpWIiW5H5FBq8Q050ppiioHhg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/wujie/-/wujie-1.0.0-rc.21.tgz}
+  registry.npmmirror.com/wujie/1.0.4:
+    resolution: {integrity: sha512-konXS5e8ehZNFZf3Nl4jw97Bl2HTdhhBgZ9UNx1NCFdMb+ic5HfZsDBK5IKf2JXp6AjCgukfiuXPJyH7InLhLg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/wujie/-/wujie-1.0.4.tgz}
     name: wujie
-    version: 1.0.0-rc.21
+    version: 1.0.4
     dependencies:
       '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.19.4
     dev: false
