@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * 所有请求都会走这个
+ */
 @WebServlet(urlPatterns = "/")
 @Slf4j
 public class RootServlet extends HttpServlet {
@@ -18,7 +21,7 @@ public class RootServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Cookie[] reqCookies = req.getCookies();
-        log.info("reqCookies = {}", reqCookies);
+        log.info("Into RootServlet！");
 
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/plain; charset=utf-8");

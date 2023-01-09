@@ -40,9 +40,8 @@
       <router-link to="/vue3-vite"
         >vue3ViteUrl <a-icon :class="['main-icon', { active: viteFlag }]" type="caret-up" @click.native="handleFlag('vite')"
       /></router-link>
-      <router-link to="/system-auth"
-        >system-auth <a-icon :class="['main-icon', { active: viteFlag }]" type="caret-up" @click.native="handleFlag('vite')"
-      /></router-link>
+      <router-link to="/system-auth">system-auth</router-link>
+      <router-link to="/jspUrl">jspUrl</router-link>
       <router-link to="/zs">中山</router-link>
       <router-link to="/all">all</router-link>
       <a-button class="menu-icon" type="primary" icon="unordered-list" size="large" @click.stop="active = !active" />

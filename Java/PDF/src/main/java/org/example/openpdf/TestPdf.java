@@ -14,11 +14,12 @@ public class TestPdf {
     public static void main(String[] args) {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("date", "2022-12-29");
+        map.put("answerNo", "answerNo");
 
         map.put("subtitle", "(subtitle)");
 
-        map.put("payerBankName", "付款人户名");
-        map.put("payerOpenBankName", "付款人开户行");
+        map.put("payerBankName", "付款人户名啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊");
+        map.put("payerOpenBankName", "付款人开户行啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊");
         map.put("payerBankNo", "付款人行别");
 
         map.put("payeeBankName", "收款人户名");
@@ -31,6 +32,15 @@ public class TestPdf {
         String moneyUppercase = Convert.digitToChinese(moneyLowercase);
         map.put("moneyUppercase", moneyUppercase);
         map.put("moneyLowercase", moneyLowercase.toString());
+
+        map.put("productType", "2022");
+        map.put("useWay", "SQ");
+        map.put("doCurBusMan", "4doCurBusMan");
+        map.put("tradeWay", "tradeWay");
+
+        map.put("mark", "mark");
+        map.put("tradeOrgNo", "DP");
+        map.put("tradeCode", "tradeCode");
 
 
 
