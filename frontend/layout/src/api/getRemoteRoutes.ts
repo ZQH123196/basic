@@ -2,7 +2,7 @@ import Four from "@/layout/component/sidebar/child/Four.vue";
 import { RouteRecordRaw } from "vue-router";
 
 
-export default function getRemoteRoute(): RouteRecordRaw[] {
+export default function getRemoteRoutes(): RouteRecordRaw[] {
     return [
         {
             path: "/Four",

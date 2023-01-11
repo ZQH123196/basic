@@ -1,19 +1,16 @@
 package org.eor.designPattern.actionDesignPattern.PublishSubscribe;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Basic {
+public class Test {
     public static void main(String[] args) {
-        CreateSubject createSubject = new CreateSubject();
-        createSubject.registerObserver(new ConcreateObeserverA());
-        createSubject.registerObserver(new ConcreateObeserverB());
-        createSubject.registerObserver(new ConcreateObeserverC());
-        createSubject.registerObserver(new ConcreateObeserverA());
-        createSubject.registerObserver(new ConcreateObeserverA());
+        Subject subject = new CreateSubject();
+        subject.registerObserver(new ConcreateObeserverA());
+        subject.registerObserver(new ConcreateObeserverB());
+        subject.registerObserver(new ConcreateObeserverC());
+        subject.registerObserver(new ConcreateObeserverA());
+        subject.registerObserver(new ConcreateObeserverA());
 
-        createSubject.notificationObserver(new Message("new Message!"));
+        subject.notificationObserver(new Message("new Message!"));
     }
 }
 

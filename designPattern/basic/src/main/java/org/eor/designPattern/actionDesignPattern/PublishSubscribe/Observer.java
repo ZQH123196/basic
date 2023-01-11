@@ -1,2 +1,5 @@
-package org.eor.designPattern.actionDesignPattern.PublishSubscribe;public interface Observer {
+package org.eor.designPattern.actionDesignPattern.PublishSubscribe;
+
+interface Observer {
+    void update(Message msg);
 }

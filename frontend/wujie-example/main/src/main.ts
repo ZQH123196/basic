@@ -80,6 +80,9 @@ setupApp({
 bus.$on("click", (msg) => window.alert(msg))
 
 const app = createApp(App)
+
+
+
 app
     .use(router)
     .use(WujieVue)

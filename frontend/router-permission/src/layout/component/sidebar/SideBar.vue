@@ -14,9 +14,8 @@
 
 <script lang="ts" setup>
 import { Menu as IconMenu } from "@element-plus/icons-vue";
-import { reactive } from "vue";
 import { useRouter } from "vue-router";
-import { MenuListType, } from "./type";
+import { menuList } from "./share";
 import { nestedRoute2MenuList } from "./utils";
 
 const router = useRouter();
@@ -30,7 +29,7 @@ function handleMenuItemClick(path: string) {
 }
 
 // 里面包裹的 list 才是真正的值，之所以要包裹是为了赋值方便，避免直接覆盖 reactive
-let menuList: MenuListType = reactive({ list: [] });
+
 // 初始化渲染菜单
 menuList.list = nestedRoute2MenuList(router.getRoutes());
 
