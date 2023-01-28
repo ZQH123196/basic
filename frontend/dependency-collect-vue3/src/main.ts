@@ -1,22 +1,27 @@
-import { ref } from "./utils/hooks"
+import { MyEvent } from "./utils/Event"
 import { createApp } from "./utils/index"
 
 
 
-createApp("App", {
-    refs: {
-        name: ref("init name"),
-        age: ref("init age")
+const eventList = createApp("#app", {
+    data: {
+        name: new MyEvent("init name"),
+        age: new MyEvent("init age")
     },
-    methods: {
-        setName(this: any) {
-            this.name.value = "eor"
-        }
-    }
 })
 
 
+const nameBtnEl = document.querySelector("#handleNameChange")
+const ageBtnEl = document.querySelector("#handleAgeChange")
 
+nameBtnEl?.addEventListener("click", () => {
+    eventList.name.value = "name btn click"
+})
+
+
+ageBtnEl?.addEventListener("click", () => {
+    eventList.age.value = "age btn click"
+})
 
 
 

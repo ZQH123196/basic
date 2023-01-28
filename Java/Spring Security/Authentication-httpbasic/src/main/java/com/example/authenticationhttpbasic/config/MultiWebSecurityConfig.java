@@ -39,8 +39,8 @@ public class MultiWebSecurityConfig {
     /**
      * We can configure multiple HttpSecurity instances just as we can have multiple <http> blocks.
      * The key is to extend the WebSecurityConfigurerAdapter multiple times.
+     * 这个配置的是 http basic 登录
      */
-
     @Configuration
     @Order(1)
     public class HttpBasicWebSecurityConfigurationAdapter extends WebSecurityConfigurerAdapter {
@@ -83,6 +83,9 @@ public class MultiWebSecurityConfig {
     }
 
 
+    /**
+     * 这个配置页面登录
+     */
     @Configuration
     public class FormLoginWebSecurityConfigurerAdapter  extends WebSecurityConfigurerAdapter {
         @Override

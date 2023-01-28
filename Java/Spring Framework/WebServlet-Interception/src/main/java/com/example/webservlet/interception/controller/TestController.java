@@ -31,6 +31,7 @@ public class TestController {
     @RequestMapping("/getInterceptorList")
     public List<String> getInterceptorList(HttpServletRequest request) throws Exception {
         HandlerExecutionChain handlerExecutionChain = handlerMapping.getHandler(request);
+        assert handlerExecutionChain != null;
         List<HandlerInterceptor> interceptorList = handlerExecutionChain.getInterceptorList();
         List<String> interceptorStrList = interceptorList.stream().map(interceptor -> interceptor.getClass().getName()).collect(Collectors.toList());
         return interceptorStrList;

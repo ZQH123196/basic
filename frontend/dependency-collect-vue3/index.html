@@ -7,12 +7,13 @@
   </head>
   <body>
     <div id="app">
+      <h1>{{ name }}</h1>
       <p>{{ name }}</p>
+      <h1>{{ age }}</h1>
       <p>{{ age }}</p>
-      <p>{{ name }}: {{ age }}</p>
 
-      <button>change name</button>
-      <button>change age</button>
+      <button id="handleNameChange" @click="handleNameChange">change name</button>
+      <button id="handleAgeChange" @click="handleAgeChange">change age</button>
     </div>
     <script type="module" src="/dist/main.js"></script>
   </body>

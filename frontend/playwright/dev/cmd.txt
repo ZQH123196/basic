@@ -1,19 +1,16 @@
 
-
-
-
-
-
-
-
-
 # cmd
 # 设定搜索浏览器的路径
 set PLAYWRIGHT_BROWSERS_PATH=D:\Code\Project\my-playwright\local-browsers
 
+# 无头浏览器
 npx playwright test --headed --workers 1
 
 
+# 设定浏览器下载路径
+export PLAYWRIGHT_BROWSERS_PATH=/d/software/pw-browsers
+# 需要翻墙才能下载
+export ALL_PROXY="http://localhost:23077"
 
 
 

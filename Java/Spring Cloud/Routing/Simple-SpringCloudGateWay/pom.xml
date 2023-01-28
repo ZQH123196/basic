@@ -5,6 +5,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>Server</module>
+        <module>Gateway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -58,6 +59,10 @@
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
     </dependencies>
 

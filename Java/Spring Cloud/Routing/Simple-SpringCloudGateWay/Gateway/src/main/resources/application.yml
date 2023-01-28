@@ -1,5 +1,24 @@
-server.port=${port:8999}
+server:
+  port: ${port:8999}
 
-spring.cloud.gateway.enabled=true
-management.endpoints.web.exposure.include=*
-management.endpoint.gateway.enabled=true
+spring:
+  cloud:
+    gateway:
+      enabled: true
+      routes:
+        - id: "conf"
+          predicates:
+            - Path = /conf
+            - After = 2020-09-02T00:00:00.000-00:00[America/Denver]
+          uri: http://localhost:9000
+
+
+
+
+management:
+  endpoints:
+    gateway:
+      enabled: true
+    web:
+      exposure:
+        include:*
