@@ -1,0 +1,5 @@
+server.port=${port:8999}
+
+spring.cloud.gateway.enabled=true
+management.endpoints.web.exposure.include=*
+management.endpoint.gateway.enabled=true
