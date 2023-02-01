@@ -1,0 +1,24 @@
+lockfileVersion: 5.4
+
+importers:
+
+  .:
+    specifiers: {}
+
+  packages/appA:
+    specifiers:
+      appB: workspace:*
+    dependencies:
+      appB: link:../appB
+
+  packages/appB:
+    specifiers:
+      dayjs: ^1.10.7
+    dependencies:
+      dayjs: 1.11.7
+
+packages:
+
+  /dayjs/1.11.7:
+    resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==}
+    dev: false

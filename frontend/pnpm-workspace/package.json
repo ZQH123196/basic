@@ -1,0 +1,13 @@
+{
+  "name": "pnpm-workspace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf node_modules && pnpm run --recursive --parallel clean",
+    "build": "pnpm run --recursive --parallel build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

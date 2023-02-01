@@ -1,0 +1,19 @@
+{
+  "name": "appA",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf node_modules"
+  },
+
+  "dependencies": {
+    "appB": "workspace:*"
+  },
+  "devDependencies": {
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

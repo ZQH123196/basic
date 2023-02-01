@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-import WujieVue from "wujie-vue3";
 import EnumServer from './constant/serverEnum';
 import router from './router';
 import { lifecycles } from './lifecycles';
@@ -16,6 +15,7 @@ import "./setupGlobalEvent";
 
 
 
+import WujieVue from "wujie-vue3";
 const { bus, setupApp, preloadApp, destroyApp } = WujieVue;
 
 
@@ -79,15 +79,19 @@ setupApp({
 
 bus.$on("click", (msg) => window.alert(msg))
 
-const app = createApp(App)
+const vueApp = createApp(App)
 
 
 
-app
+vueApp
     .use(router)
     .use(WujieVue)
     .mount('#app');
 
 // 挂到全局方便调试
-window.app = app;
+window.app = vueApp;
 console.log("main.ts 运行完毕！");
+
+export {
+    vueApp
+}

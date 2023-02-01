@@ -3,8 +3,8 @@ import WujieVue from "wujie-vue3";
 const { bus } = WujieVue;
 
 
-bus.$on("registerSidebar", ({preFilter, postHandle}) => {
-    onregisterSidebar({}, preFilter, postHandle);
+bus.$on("registerSidebar", ({routeMap, preFilter, postHandle}) => {
+    onregisterSidebar(routeMap, preFilter, postHandle);
 })
 
 

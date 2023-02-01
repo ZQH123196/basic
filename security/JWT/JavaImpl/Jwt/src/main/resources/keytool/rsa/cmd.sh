@@ -1,0 +1,3 @@
+keytool -genkey -alias felordcn -keypass felordcn -keyalg RSA -storetype PKCS12 -keysize 2048 -validity 1780 -keystore ./rsaKeyStorage.jks -storepass 1008610086 -dname "CN=(china), OU=(bankcn), O=(bankcn), L=(zz), ST=(hn), C=(cn)"
+
+keytool -genkey -alias felordcn -keypass felordcn -keyalg RSA -storetype PKCS12 -keysize 1024 -validity 365 -keystore ./felordcn.jks -storepass 123456 -dname "CN=(Felord), OU=(felordcn), O=(felordcn), L=(zz), ST=(hn), C=(cn)"
