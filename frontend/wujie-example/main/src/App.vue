@@ -40,7 +40,15 @@
       <router-link to="/vue3-vite"
         >vue3ViteUrl <a-icon :class="['main-icon', { active: viteFlag }]" type="caret-up" @click.native="handleFlag('vite')"
       /></router-link>
-      <router-link to="/system-auth">system-auth</router-link>
+      
+      <!-- 跟子应用路由路径一模一样，hash 路径也跟子应用一样需要添加 # -->
+      <router-link to="/system-auth" >system-auth</router-link>
+      <div class="sub-menu" v-show="true">
+        <router-link to="/system-auth/#/home">home</router-link>
+        <router-link to="/system-auth/#/childRoute">childRoute</router-link>
+        <router-link to="/system-auth/#/HelloWorldVue">HelloWorldVue</router-link>
+      </div>
+
       <router-link to="/jspUrl">jspUrl</router-link>
       <router-link to="/zs">中山</router-link>
       <router-link to="/all">all</router-link>

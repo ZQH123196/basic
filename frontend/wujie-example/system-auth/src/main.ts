@@ -1,8 +1,13 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
+import router from './router';
 
 const app = createApp(App)
+
+app
+    .use(router)
+
 
 declare global {
     interface Window {
@@ -32,10 +37,11 @@ if (window.__POWERED_BY_WUJIE__) {
         还没有加载回来，这里采用主动调用防止用没有mount
         无界mount函数内置标记，不用担心重复mount
     */
-   // 注册完成之后主动调用一次 mount
+    // 注册完成之后主动调用一次 mount
     window.__WUJIE.mount()
 } else {
     app.mount('#app');
 }
 
 
+export { }

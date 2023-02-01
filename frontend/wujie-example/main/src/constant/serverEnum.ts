@@ -1,6 +1,6 @@
 
 enum EnumServer {
-    nameSystemAuth = "System-auth",
+    nameSystemAuth = "system-auth",
     nameJspUrl = "jsp",
     // urlSystemAuth = "//localhost:8080/SystemAuth",
     urlSystemAuth = "//localhost:8999/cors",

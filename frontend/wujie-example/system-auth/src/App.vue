@@ -20,4 +20,5 @@ const handleClick = () => {
 <template>
     <h1>system-auth</h1>
     <button @click="handleClick()">registerSidebar</button>
+    <RouterView></RouterView>
 </template>

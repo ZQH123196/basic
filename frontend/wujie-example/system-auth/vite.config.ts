@@ -10,7 +10,7 @@ export default defineConfig({
   },
   base: "/SystemAuth/",
   build: {
-    outDir: "SystemAuth"
+    outDir: "dist"
   },
   plugins: [vue()]
 }) 

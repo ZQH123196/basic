@@ -1,0 +1,19 @@
+# 这是数据库 MySQL 模式启动的配置
+server:
+  port: 8848
+  tomcat:
+    basedir: logs
+
+spring:
+  datasource:
+    platform: oracle
+
+# 数据库存储存储配置文件
+db:
+  num: 1
+  user: SZCZ
+  password: 1008610086
+  pool.config.driver-class-name: oracle.jdbc.OracleDriver
+  pool.config.connection-test-query: 'SELECT 1 FROM DUAL'
+  url:
+    0: jdbc:oracle:thin:@//localhost:1521/XE
