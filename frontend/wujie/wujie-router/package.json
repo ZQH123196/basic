@@ -1,0 +1,14 @@
+{
+  "name": "wujie-router",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "installDep": "pnpm run --recursive installDep",
+    "clean": "rimraf node_modules && pnpm run --recursive --parallel clean",
+    "build": "pnpm run --recursive --parallel build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
