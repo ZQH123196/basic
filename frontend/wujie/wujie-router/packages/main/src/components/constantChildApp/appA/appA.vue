@@ -1,6 +1,7 @@
 <template>
-  <WujieVue width="100%" height="100%" :name="wujieProps.name" :url="wujieProps.url" :sync="true"></WujieVue>
-  il>li*1
+  <WujieVue width="100%" height="100%" name="appA" url="//localhost:9000/" :sync="true"></WujieVue>
+
+
 </template>
 
 <script lang="ts" setup>import { useRoute, useRouter } from 'vue-router';

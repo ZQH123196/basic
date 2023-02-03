@@ -5,8 +5,8 @@ server:
 
 spring:
   profiles:
-    active: oracle
-  #    nacos 关闭登录功能，登录由我们自行定制
+    active: mysql
+#    active: oracle
   security:
     enabled: false
 #  boot: # 接入 spring boot admin
@@ -18,7 +18,7 @@ spring:
 #        instance:
 #          prefer-ip: true
 #    application:
-#      name: nacos-console
+#      name: nacos
 
 
 #  nacos 关闭登录功能，登录由我们自行定制

@@ -1,32 +1,55 @@
 import { createRouter, createWebHashHistory, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
-import Vue3 from "../views/Vue3.vue";
-import Vue3Sub from "../views/Vue3-sub.vue";
-import Vue3Vite from "../views/Vue3-vite.vue";
 import SystemAuth from "../views/System-auth.vue";
-import Jsp from "../views/Jsp.vue";
+import AppA from "../components/constantChildApp/appA/appA.vue";
+import AppASub from "../components/constantChildApp/appA/appA-sub.vue";
+
+import Vite from "../components/constantChildApp/vite/Vite.vue";
+import ViteSub from "../components/constantChildApp/vite/Vite-sub.vue";
+
+declare module 'vue-router' {
+    interface RouteMeta {
+        // 是可选的
+        menuProps?: {
+            text: string
+        }
+        // 每个路由都必须声明
+        wujieProps?: any
+    }
+}
 
 
-const routes = [
+const routes: RouteRecordRaw[] = [
     {
         path: "/",
         redirect: "/home",
     },
     {
-        path: "/home",
         name: "home",
+        path: "/home",
         component: Home,
     },
     {
-        path: "/vue3",
-        name: "vue3",
-        component: Vue3,
+        name: "appA",
+        path: "/appA",
+        component: AppA,
     },
     {
-        path: "/vue3-sub/:path",
-        name: "vue3-sub",
-        component: Vue3Sub,
+        name: "appA-sub",
+        path: "/appA/:path",
+        component: AppASub,
     },
+    {
+        path: "/vite",
+        name: "vite",
+        component: Vite,
+    },
+    {
+        path: "/vite-sub/:path",
+        name: "vite-sub",
+        component: ViteSub,
+    },
+
 
 ];
 const router = createRouter({

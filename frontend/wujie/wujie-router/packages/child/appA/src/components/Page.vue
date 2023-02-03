@@ -3,8 +3,7 @@
 </script>
 
 <template>
-  <h1>appB</h1>
-  <RouterView></RouterView>
-
+  <h2>page component from appA.</h2>
 </template>
+
 

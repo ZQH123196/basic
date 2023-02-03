@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "installDep": "pnpm run --recursive installDep",
+    "dev": "pnpm run --recursive --parallel dev",
     "clean": "rimraf node_modules && pnpm run --recursive --parallel clean",
     "build": "pnpm run --recursive --parallel build"
   },

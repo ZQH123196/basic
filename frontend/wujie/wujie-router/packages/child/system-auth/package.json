@@ -1,19 +1,16 @@
 {
-  "name": "main",
+  "name": "system-auth",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --port 8999"
+    "preview": "vite preview --port 9000"
   },
   "dependencies": {
     "vue": "^3.2.37",
-    "vue-router": "^4.1.5",
-    "wujie": "^1.0.5",
-    "wujie-vue3": "^1.0.4"
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.1.0",
