@@ -15,5 +15,4 @@ db:
   password: 1008610086
   pool.config.driver-class-name: oracle.jdbc.OracleDriver
   pool.config.connection-test-query: 'SELECT 1 FROM DUAL'
-  url:
-    0: jdbc:oracle:thin:@//localhost:1521/XE
+  url: jdbc:oracle:thin:@//localhost:1521/XE

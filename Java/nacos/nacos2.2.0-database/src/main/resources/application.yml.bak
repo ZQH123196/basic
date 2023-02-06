@@ -1,0 +1,50 @@
+server:
+  port: 8848
+  tomcat:
+    basedir: logs
+
+spring:
+  profiles:
+#    active: mysql
+    active: oracle
+  security:
+    enabled: false
+#  boot: # 接入 spring boot admin
+#    admin:
+#      client:
+#        url: http://eor-monitor:5001
+#        username: eor
+#        password: eor888888
+#        instance:
+#          prefer-ip: true
+#    application:
+#      name: nacos
+
+
+#  nacos 关闭登录功能，登录由我们自行定制
+management:
+  security: false
+security:
+  basic:
+    enabled: false
+
+nacos:
+  # 单实例模式启动
+  standalone: true
+  core:
+    # 授权认证相关：https://nacos.io/zh-cn/docs/auth.html
+    # 授权认证相关：https://nacos.io/zh-cn/docs/v2/guide/user/auth.html
+    auth:
+      # 是否开启认证，不开启，使用自定义的认证
+      enabled: false
+      # 所启用的Nacos的鉴权插件的名称，与`com.alibaba.nacos.plugin.auth.spi.server.AuthPluginService`的`getAuthServiceName`返回值对应
+      system.type: nacos
+      default.token.secret.key: SecretKey012345678901234567890123456789012345678901234567890123456789
+      plugin.nacos.token.secret.key: VGhpc0lzTXlDdXN0b21TZWNyZXRLZXkwMTIzNDU2Nzg=
+  #    nacos 关闭登录功能，登录由我们自行定制
+  security:
+    ignore:
+      urls: /**
+
+
+useAddressServer: true
