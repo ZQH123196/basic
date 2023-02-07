@@ -52,3 +52,24 @@ let childAppRegiisterList = [
 有 menuProps 的生成 menuList
 
 
+
+
+
+```ts
+routeChangeProps = {
+    onMainRouteChange(matchPattern, ) {
+        if (!match) return false
+        注册 event 
+    }
+}
+```
+
+保活模式，父子应用路由跳转的规则
+主应用会将自己的 path 传递到事件
+子应用永远都会注册自己所有的路由
+所以在这之间有一个固定的联系
+
+if maiPath match childRute
+then router.push
+
+所以可以让子应用自动注册
