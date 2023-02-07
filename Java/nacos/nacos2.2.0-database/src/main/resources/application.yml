@@ -5,8 +5,8 @@ server:
 
 spring:
   profiles:
-#    active: mysql
-    active: oracle
+    active: mysql
+#    active: oracle
   security:
     enabled: false
 #  boot: # 接入 spring boot admin
