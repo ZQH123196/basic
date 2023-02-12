@@ -1,6 +1,6 @@
 <template>
     <el-container>
-        <el-aside >
+        <el-aside style="width: min-content">
             <el-scrollbar>
                 <SideBarVue></SideBarVue>
             </el-scrollbar>
@@ -12,5 +12,5 @@
 </template>
 
 <script setup lang="ts">
-import { SideBarVue } from "./component";
+import { SideBarVue } from "./components/";
 </script>

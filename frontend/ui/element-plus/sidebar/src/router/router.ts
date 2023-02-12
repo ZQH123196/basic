@@ -1,10 +1,11 @@
 import { createRouter, createWebHashHistory, Router, RouteRecordRaw } from "vue-router"
 
 import layoutVue from "@/layout/layout.vue"
-import One from "@/layout/component/sidebar/child/One.vue"
-import Two from "@/layout/component/sidebar/child/Two.vue"
-import Three from "@/layout/component/sidebar/child/Three.vue"
-import Dashboard from "@/layout/component/dashboard/Dashboard.vue"
+import One from "@/views/One.vue"
+import Two from "@/views/Two.vue"
+import Three from "@/views/Three.vue"
+import Dashboard from "@/layout/components/dashboard/Dashboard.vue"
+import { SideBarVue } from "@/layout/components"
 
 
 /**
@@ -14,6 +15,10 @@ import Dashboard from "@/layout/component/dashboard/Dashboard.vue"
  * 同时要注意 vueroute 其实会解析 route，将其映射为最小单元
  */
 const constantRoutes: RouteRecordRaw[] = [
+    {
+        path: "/test",
+        component: SideBarVue,
+    },
     {
         path: "/",
         component: layoutVue,

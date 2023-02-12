@@ -5,8 +5,12 @@ import { mapRoutes2MenuList } from "./layout/component/sidebar/utils";
 import { userProxy } from "./store";
 import Four from "@/layout/component/sidebar/child/Four.vue";
 
+const whiteList = ['/login', '/register'];
 
-
+/**
+ * 注册路由守卫
+ * @param router 
+ */
 function setupPermission(router: Router) {
     router.beforeEach((to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
         if (testLogin()) {
@@ -22,7 +26,12 @@ function setupPermission(router: Router) {
     })
 }
 
-
+/**
+ * 验证是否登录，方式很多
+ * 从 store 拿
+ * 直接从 login 拿
+ * @returns 
+ */
 function testLogin(): boolean {
     if (userProxy.user) {
         return true
