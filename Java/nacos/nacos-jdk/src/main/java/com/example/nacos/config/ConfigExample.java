@@ -1,4 +1,4 @@
-package com.example.nacos;
+package com.example.nacos.config;
 
 /*
 * Demo for Nacos

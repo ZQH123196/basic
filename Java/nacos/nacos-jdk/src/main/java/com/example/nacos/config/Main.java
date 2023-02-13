@@ -1,4 +1,4 @@
-package com.example.nacos;
+package com.example.nacos.config;
 
 
 import com.alibaba.nacos.api.NacosFactory;
