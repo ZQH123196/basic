@@ -1,0 +1,9 @@
+com.alibaba.nacos.spi.oracle.mysupport.impl.oracle.ConfigInfoAggrMapperByOracle
+com.alibaba.nacos.spi.oracle.mysupport.impl.oracle.ConfigInfoBetaMapperByOracle
+com.alibaba.nacos.spi.oracle.mysupport.impl.oracle.ConfigInfoMapperByOracle
+com.alibaba.nacos.spi.oracle.mysupport.impl.oracle.ConfigInfoTagMapperByOracle
+com.alibaba.nacos.spi.oracle.mysupport.impl.oracle.ConfigTagsRelationMapperByOracle
+com.alibaba.nacos.spi.oracle.mysupport.impl.oracle.HistoryConfigInfoMapperByOracle
+com.alibaba.nacos.spi.oracle.mysupport.impl.oracle.TenantInfoMapperByOracle
+com.alibaba.nacos.spi.oracle.mysupport.impl.oracle.TenantCapacityMapperByOracle
+com.alibaba.nacos.spi.oracle.mysupport.impl.oracle.GroupCapacityMapperByOracle

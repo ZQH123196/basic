@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    platform: mysql
+
+
+# 数据库存储存储配置文件
+db:
+  num: 1
+  user: root
+  password: root
+  url:
+    0: jdbc:mysql://127.0.0.1:3306/szcz?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+#    0: jdbc:mysql://127.0.0.1:3306/ry-config?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+
+
