@@ -1,5 +1,5 @@
 server:
-  port: ${port:8848}
+  port: 8848
   tomcat:
     basedir: logs
 
@@ -21,7 +21,7 @@ security:
 
 nacos:
   # 单实例模式启动
-  standalone: true
+  standalone: false
   core:
     # 授权认证相关：https://nacos.io/zh-cn/docs/auth.html
     # 授权认证相关：https://nacos.io/zh-cn/docs/v2/guide/user/auth.html

@@ -54,7 +54,7 @@ public class NamespaceOperationService {
     
     private static final int DEFAULT_QUOTA = 200;
     
-    private static final String DEFAULT_CREATE_SOURCE = "com/alibaba/nacos";
+    private static final String DEFAULT_CREATE_SOURCE = "nacos";
     
     private static final String DEFAULT_TENANT = "";
     

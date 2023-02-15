@@ -48,6 +48,10 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
             <groupId>io.springboot.nacos</groupId>
             <artifactId>nacos-config</artifactId>
             <version>${nacos-server.version}</version>
@@ -57,11 +61,11 @@
             <artifactId>nacos-naming</artifactId>
             <version>${nacos-server.version}</version>
         </dependency>
-        <dependency>
-            <groupId>io.springboot.nacos</groupId>
-            <artifactId>nacos-istio</artifactId>
-            <version>${nacos-server.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>io.springboot.nacos</groupId>-->
+<!--            <artifactId>nacos-istio</artifactId>-->
+<!--            <version>${nacos-server.version}</version>-->
+<!--        </dependency>-->
         <!--
         插件默认实现（授权/角色等的默认实现）也可以不引入此依赖，自行实现相关功能
         官方鉴权插件文档：https://nacos.io/zh-cn/docs/v2/plugin/auth-plugin.html

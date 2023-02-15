@@ -11,8 +11,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * 官方源码中：console 包中复制而来的主启动类
  * 设置 System.setProperty 的原因是 application.yml 里面的配置似乎并不是全部都能生效
  */
-@EnableScheduling
-@ServletComponentScan
+//@EnableScheduling
+//@ServletComponentScan
 @SpringBootApplication
 public class ClusterApplication {
 
@@ -20,11 +20,17 @@ public class ClusterApplication {
         /**
          *设置单机模式启动
          */
-        System.setProperty(ConfigConstants.STANDALONE_MODE, "true");
+//        System.setProperty(ConfigConstants.STANDALONE_MODE, "true");
         /**
          * 是否开启认证
          */
         System.setProperty(ConfigConstants.AUTH_ENABLED, "false");
+
+        /**
+         * 还是要使用 -D 来设置系统变量有用
+         */
+//        System.setProperty("nacos.home", "E:\\Code\\Porject\\basic\\Java\\Nacos\\deploy-cluster\\src\\main\\resources");
+
         SpringApplication.run(ClusterApplication.class, args);
     }
 }
