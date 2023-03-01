@@ -17,14 +17,14 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class ConfigApplication {
 
     public static void main(String[] args) {
-        /**
-         *设置单机模式启动
-         */
-        System.setProperty(ConfigConstants.STANDALONE_MODE, "true");
-        /**
-         * 是否开启认证
-         */
-        System.setProperty(ConfigConstants.AUTH_ENABLED, "false");
+//        /**
+//         *设置单机模式启动
+//         */
+//        System.setProperty(ConfigConstants.STANDALONE_MODE, "true");
+//        /**
+//         * 是否开启认证
+//         */
+//        System.setProperty(ConfigConstants.AUTH_ENABLED, "false");
         SpringApplication.run(ConfigApplication.class, args);
     }
 }

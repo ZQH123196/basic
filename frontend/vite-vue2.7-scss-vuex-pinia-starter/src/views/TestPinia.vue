@@ -14,18 +14,35 @@
             Template
         </h2>
         <!-- <h4>{{ count }}</h4> -->
-        <h4>{{ exampleStore }}</h4>
+        <h4>{{ exampleStore.counter }}</h4>
         <button @click="add">Count++</button>
     </div>
 </template>
+
+<!-- setup 风格 -->
+<script lang="ts" setup >
+import { ref } from "vue";
+import { piniaStore } from "../store";
+
+const exampleStore = piniaStore.useStore();
+
+function add() {
+    exampleStore.counter++
+}
+
+
+</script>
+
+
+<!-- defineComponent 中的 setup -->
 <!-- <script lang="ts">
 import { defineComponent } from "vue";
-import { useStore } from "../store";
+import { piniaStore } from "../store";
 
 
 export default defineComponent({
     setup(props) {
-        const exampleStore = useStore();
+        const exampleStore = piniaStore.useStore();
         return {
             // 您可以返回整个 store 实例以在模板中使用它
             exampleStore,
@@ -39,20 +56,9 @@ export default defineComponent({
 });
 </script> -->
 
-<script setup lang="ts">
-import { ref } from "vue";
-import { useStore } from "../store";
-
-// const exampleStore = useStore();
-const exampleStore = ref(0);
-
-function add() {
-    // exampleStore.counter++;
-    exampleStore.value++
-}
 
 
-</script>
+
 <style lang="scss" scoped>
 .container {
     text-align: center;

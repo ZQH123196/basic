@@ -4,19 +4,23 @@ const createRouter = () => new VueRouter({
     routes: [
         {
             path: '/',
-            component: () => import("../views/Home.vue")
+            redirect: "/TestLifecycle"
         },
         {
-            path: '/About',
-            component: () => import("../views/About.vue")
+            path: '/TestLifecycle',
+            component: () => import("../views/TestLifecycle.vue")
         },
         {
-            path: '/compositionSetup',
-            component: () => import("../views/compositionSetup.vue")
+            path: '/TestPinia',
+            component: () => import("../views/TestPinia.vue")
         },
         {
-            path: '/optionapi',
-            component: () => import("../views/optionapi.vue")
+            path: '/TestVuexCompositionSetup',
+            component: () => import("../views/TestVuexCompositionSetup.vue")
+        },
+        {
+            path: '/TestVuexOptionapi',
+            component: () => import("../views/TestVuexOptionapi.vue")
         }
     ]
 })

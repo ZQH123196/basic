@@ -1,4 +1,5 @@
-import { defineStore } from 'pinia'
+import { defineStore, createPinia } from 'pinia'
+import Vue from 'vue';
 
 const useStore = defineStore('storeId', {
     // 推荐使用 完整类型推断的箭头函数
@@ -12,7 +13,9 @@ const useStore = defineStore('storeId', {
     },
 })
 
+const pinia = createPinia()
+Vue.use(pinia)
 
-export {
+export const piniaStore = {
     useStore
 }
