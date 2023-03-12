@@ -5,7 +5,7 @@ import childAppVue from "../components/childApp/childApp.vue";
 import childAppSubVue from "../components/childApp/childAppSub.vue";
 import router from "../router";
 import { sideBarMenuList } from "../share";
-import { initAppA, initAppB, routeModeHash, routeModeHistory } from "./constant";
+import { initAppA, initAppB, routeModeHash, routeModeHistory, vite_vue27_ts } from "./constant";
 
 
 
@@ -99,29 +99,40 @@ function registerVueInstance(ops: {
 }) {
     const childApp = childAppList.find(item => ops.appName == item.wujieProps.name)
     if (!childApp) throw new Error(`找不到此子应用 ${ops.appName} 的注册信息！`);
-    if (!ops.vueProps.instance.config.globalProperties.$router) throw new Error(`子应用的实例上没有 $router 对象！考虑让子应用使用 vue router！`);
-    childApp.vueProps = ops.vueProps
+
+    const childVueInstance = ops.vueProps.instance
+    let $router = undefined;
+    let version = childVueInstance.version;
+    if (version.split(".")[0] == "3") { // vue3
+        if (!childVueInstance.config.globalProperties.$router) throw new Error(`子应用的实例上没有 $router 对象！考虑让子应用使用 vue router！`);
+        // 为了使得 vue2、vue3 在使用时达到一致（vue3 没有 vue.$router），这里重新赋值
+        $router = childVueInstance.config.globalProperties.$router
+    } else { // vue2
+        if (!childVueInstance.$router) throw new Error(`子应用的实例上没有 $router 对象！考虑让子应用使用 vue router！`);
+        $router = childVueInstance.$router;
+    }
+
+    childApp.instanceProps = {
+        instance: childVueInstance,
+        version,
+        $router
+    }
 
 
-    // 添加到对应 router 的 meta 中，方法是直接替换路由
+    // 添加到对应 router 的 meta 中，因为不能改，所以是删除在添加新路由
     const childRootRoute = router.getRoutes().find(route => route.name === childApp.routeProps.name)
     router.removeRoute(childRootRoute.name)
-    childRootRoute.meta.vueProps = ops.vueProps
-    childRootRoute.meta.routeMode = getRouterMode(ops.vueProps.instance)
+    childRootRoute.meta.instanceProps = childApp.instanceProps
     router.addRoute(childRootRoute)
 
     const childAppSubRoute = router.getRoutes().find(route => route.name === childApp.routeProps.name + "-sub")
     router.removeRoute(childAppSubRoute.name)
-    childAppSubRoute.meta.vueProps = ops.vueProps
-    childRootRoute.meta.routeMode = getRouterMode(ops.vueProps.instance)
+    childAppSubRoute.meta.instanceProps = childApp.instanceProps
     router.addRoute(childAppSubRoute)
 
 }
 
-function getRouterMode(instance: App<Element>): "history" | "hash" {
-    const base = instance.config.globalProperties.$router.options.history.base
-    return base.endsWith("#") ? routeModeHash : routeModeHistory 
-}
+
 
 
 
@@ -135,8 +146,10 @@ function registerApp(ops: childAppOpsType) {
 
 // name 应当一致
 interface childAppOpsType {
-    vueProps?: {
-        instance: App<Element>
+    instanceProps?: {
+        instance: App<Element>,
+        version: string,
+        $router
     },
     menuProps?: {
         text: string,
@@ -144,6 +157,7 @@ interface childAppOpsType {
     routeProps?: {
         name: string,
         path: string,
+        meta?: any
     },
     wujieProps: cacheOptions,
 }
@@ -152,7 +166,8 @@ interface childAppOpsType {
 
 const childAppList = [
     initAppA,
-    initAppB
+    initAppB,
+    vite_vue27_ts
 ]
 
 

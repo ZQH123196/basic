@@ -10,11 +10,11 @@ const route = useRoute();
 
 const meta = route.meta
 const wujieProps = meta.wujieProps
-const vueProps = route.meta.vueProps;
+const instanceProps = route.meta.instanceProps;
 
 
-if (vueProps) {
-    vueProps.instance.config.globalProperties.$router.push("/")
+if (instanceProps) {
+    instanceProps.$router.push("/")
 }
 
 </script>

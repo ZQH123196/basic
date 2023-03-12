@@ -12,10 +12,10 @@ import { useRoute } from "vue-router";
 const route = useRoute();
 
 const wujieProps = route.meta.wujieProps;
-const vueProps = route.meta.vueProps;
+const instanceProps = route.meta.instanceProps;
 
-if (vueProps) {
-    vueProps.instance.config.globalProperties.$router.push(route.params.path as string)
+if (instanceProps) {
+    instanceProps.$router.push(route.params.path as string)
 }
 
 </script>

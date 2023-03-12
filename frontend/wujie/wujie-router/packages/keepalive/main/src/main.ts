@@ -19,8 +19,7 @@ vueApp
     .use(WujieVue)
     .mount('#app');
 
-
-
+window.app = vueApp;
 export {
     vueApp
 }
