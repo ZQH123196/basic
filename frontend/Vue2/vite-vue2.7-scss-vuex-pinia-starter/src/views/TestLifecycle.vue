@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-import { getCurrentInstance, onBeforeMount, onBeforeUnmount, onMounted } from "vue";
-
+import axios from "axios";
+import { getCurrentInstance, onBeforeMount, onBeforeUnmount, onMounted, ref } from "vue";
+axios.post
 /**
  * TestLifecycle.vue:5 onBeforeMount！
  * TestLifecycle.vue:8 onMounted！
