@@ -53,9 +53,16 @@ public class TestDataFaker {
     }
 
 
+    /**
+     *
+     * 更多与 concurrent 相关的要去看 concurrent 项目
+     * @throws InterruptedException
+     * @throws ExecutionException
+     */
     @RepeatedTest(10)
     public void testAsyncCollect() throws InterruptedException, ExecutionException {
         Faker faker = new Faker();
+        // 10w
         int MAX_NUM = 100 * 1000;
         int ThreadCnt = 8;
 
@@ -80,8 +87,12 @@ public class TestDataFaker {
             list.addAll(_list);
         }
 
+        System.out.println(list.size());
         Assertions.assertEquals(MAX_NUM * ThreadCnt, list.size());
     }
+
+
+
 
 
 }
