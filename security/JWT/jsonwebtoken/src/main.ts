@@ -1,23 +1,15 @@
-import './style.css'
-import { setupCounter } from './counter'
-import axios from 'axios'
+import * as counter from './counter'
 import jwt from "jsonwebtoken"
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-
-  </div>
-`
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
 
 
-// jwt.sign()
 
 
-const url = ""
-let data = {
-  
-}
-axios.post(url, data);
 
+const dynamicModule = await import("./counter")
+console.log(dynamicModule);
+console.log(dynamicModule.a);
+
+import("./counter").then((module => {
+  console.log(module);
+}))

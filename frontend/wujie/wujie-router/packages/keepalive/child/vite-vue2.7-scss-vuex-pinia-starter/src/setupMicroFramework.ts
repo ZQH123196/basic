@@ -1,4 +1,5 @@
 import Vue from "vue";
+import VueRoute, { RouteRecordPublic } from "vue-router";
 
 
 declare global {
@@ -29,13 +30,16 @@ declare global {
     }
 }
 
-function setupMicroFramework(appName: String, vueApp: Vue, router?: any) {
+function setupMicroFramework(vueApp: Vue, router?: VueRoute) {
     const props = window.$wujie?.props;
+    const appName = props?.appName;
     const registerVueInstance: Function = props!.registerVueInstance
     const registerMenu: Function = props!.registerMenu
 
     // vue2 的实例上并没有版本信息，所以要绑定上
+    // @ts-ignore
     if (!vueApp.version) {
+        // @ts-ignore
         vueApp.version = Vue.version
     }
 
@@ -66,7 +70,7 @@ function setupMicroFramework(appName: String, vueApp: Vue, router?: any) {
  * 比如权限设置某个角色只能看到那些页面
  * @param routes 
  */
-function mapRoutes2MenuList(routes: RouteRecordNormalized[]) {
+function mapRoutes2MenuList(routes: RouteRecordPublic[]) {
     return routes
         .map(route => {
             return {
@@ -76,4 +80,4 @@ function mapRoutes2MenuList(routes: RouteRecordNormalized[]) {
         })
 }
 
-export {setupMicroFramework}
+export { setupMicroFramework }

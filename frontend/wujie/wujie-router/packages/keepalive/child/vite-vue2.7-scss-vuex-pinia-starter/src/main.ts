@@ -20,7 +20,7 @@ app.$mount("#app");
 
 
 if (window.$wujie) {
-  setupMicroFramework("vite_vue27_ts", app, router);
+  setupMicroFramework(app, router);
 }
 
 

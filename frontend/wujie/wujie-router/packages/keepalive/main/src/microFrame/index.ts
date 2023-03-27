@@ -1,5 +1,5 @@
 import { App } from "vue";
-import { childAppList } from "./setupChildApp";
+import { childAppList, setupMicroFrameApp } from "./setupChildApp";
 
 declare module 'vue-router' {
     interface RouteMeta {
@@ -19,5 +19,6 @@ declare module 'vue-router' {
 
 
 export {
-    childAppList
+    childAppList,
+    setupMicroFrameApp
 }
