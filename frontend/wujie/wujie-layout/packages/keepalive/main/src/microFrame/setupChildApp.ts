@@ -1,6 +1,7 @@
 import { App } from "vue";
 import { Router, RouteRecordName, RouteRecordRaw } from "vue-router";
 import { cacheOptions, plugin, preloadApp, setupApp } from "wujie";
+import WujieVue from "wujie-vue3";
 import childAppVue from "../components/childApp/childApp.vue";
 import childAppSubVue from "../components/childApp/childAppSub.vue";
 import layout from "../layout";
@@ -187,7 +188,8 @@ const childAppList = [
 ]
 
 
-function setupMicroFrameApp() {
+function setupMicroFrameApp(vueApp: App<Element>) {
+    vueApp.use(WujieVue)
     childAppList.forEach(childApp => registerApp(childApp))
 }
 
