@@ -12,13 +12,13 @@ const vueApp = createApp(App)
 
 vueApp
     .use(router)
-    .use(WujieVue)
+    
     .mount('#app');
 
 
 // 引入微前端
 import { setupMicroFrameApp } from './microFrame';
-setupMicroFrameApp()
+setupMicroFrameApp(vueApp)
 
 
 
