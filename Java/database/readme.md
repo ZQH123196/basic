@@ -25,7 +25,7 @@ https://www.cnblogs.com/Hakuna-Matata/p/7772794.html
 
 
 发展历史，使用指南
-jdbc connection(DriverManager.getConnection) -> datasource(connection pool javax) -> 
+jdbc connection(DriverManager.getConnection()) -> datasource(connection pool javax) -> 
 PooledConnectuon/ConnectionPoolDataSource/ConnectionEventListener -> 
 spring jdbcTemplate/NamedTemplate -> orm -> spring boot + orm
 

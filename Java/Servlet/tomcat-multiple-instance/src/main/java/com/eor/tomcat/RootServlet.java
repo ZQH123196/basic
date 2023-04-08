@@ -1,4 +1,4 @@
-package com.servletsimple;
+package com.eor.tomcat;
 
 import lombok.extern.slf4j.Slf4j;
 

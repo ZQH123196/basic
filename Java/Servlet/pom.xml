@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>servlet-simple</module>
-        <module>tmp1</module>
+        <module>tomcat-multiple-instance</module>
     </modules>
 
 

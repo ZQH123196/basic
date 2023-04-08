@@ -18,8 +18,6 @@ spring:
           uri: lb://ruoyi-auth
           predicates:
             - Path=/auth/**
-#          filters:
-#            # ?????
-#            - CacheRequestFilter
-#            - ValidateCodeFilter
-#            - StripPrefix=1
+          filters:
+            - StripPrefix=1
+
