@@ -27,7 +27,7 @@ let signOptions: SignOptions = {
 const jwtSign = jwt.sign(payload, secret, signOptions)
 
 
-sleep(2 * 1000)
+// sleep(2 * 1000)
 
 let res = jwt.verify(jwtSign, secret)
 console.log(res);
