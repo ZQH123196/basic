@@ -6,8 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
   </head>
+  <head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script type="text/javascript" src="js/afquery.js" ></script>
+		<style>
+			.main{
+				
+			}
+			
+			.main input{
+				margin: 20px;
+			}
+			.main .upload{
+				background-color: cornflowerblue;
+				color: #fff;
+				border: 1px solid #ccc;
+				border-radius: 1px;
+				padding: 8px 18px;
+			}
+		</style>
+	</head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+
+		<div class="main">
+			<input type="file" class="filebutton" style="display: none;" onchange="fileSelected()" /><br />
+			<button class="upload" onclick="openFileDialog()">选择上传文件</button>
+		</div>
   </body>
 </html>

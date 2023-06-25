@@ -4,11 +4,15 @@ package com.example.java.sm;
 import cn.hutool.core.util.HexUtil;
 import com.example.java.sm.utils.MySmUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.bouncycastle.util.encoders.Hex;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.Map;
 
 @CrossOrigin
@@ -56,5 +60,22 @@ public class TestController {
         log.info("decSm4Data = [{}]", decSm4Data);
     }
 
+
+    /**
+     * 文件名 org.apache.tomcat.util.http.fileupload.FileUploadBase#getFileName(org.apache.tomcat.util.http.fileupload.FileItemHeaders)
+     *
+     * @param file
+     * @return
+     */
+    @PostMapping(value = "/uploadSm4")
+    public boolean uploadSm4(MultipartFile file,
+                             @RequestHeader("sm4KeyHex") String sm4KeyHex) throws IOException {
+        byte[] sm4Key = Hex.decode(sm4KeyHex);
+        String encHexStr = new String(file.getBytes());
+        String decHexStr = MySmUtil.sm4Decrypt(encHexStr, sm4Key);
+        String realFileContent = HexUtil.decodeHexStr(decHexStr, Charset.defaultCharset());
+        log.info("realFileContent = [{}]", realFileContent);
+        return true;
+    }
 
 }

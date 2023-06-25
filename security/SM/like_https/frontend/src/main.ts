@@ -5,15 +5,7 @@
 
 
 
-import { Axios, AxiosRequestConfig } from 'axios';
-import { log } from 'console';
-
-
-const axiosConfg: AxiosRequestConfig = {
-    baseURL: "http://localhost:8080"
-};
-
-const axiosInstance = new Axios(axiosConfg);
+import axiosInstance from './request';
 
 
 
@@ -58,6 +50,8 @@ import {sm2, sm4} from 'sm-crypto';
 
 
 import CryptoJS from "crypto-js";
+import { encFileSm4 } from './sm4File';
+import { throws } from 'assert';
 let u8WordArray = CryptoJS.enc.Utf8.parse("1008610086100861");
 let sm4KeyHex =  CryptoJS.enc.Hex.stringify(u8WordArray);
 // 31303038363130303836313030383631
@@ -102,4 +96,32 @@ let sm4DecryptTestHeaders = {
 await axiosInstance.post('/test/sm4DecryptTest', {}, {headers: sm4DecryptTestHeaders});
 
 
+
+
+
+
+//点击普通按钮
+function openFileDialog()
+{
+    //模拟鼠标点击事件
+    document.querySelector<HTMLInputElement>(".filebutton")?.click();
+}
+
+// 用户选择了一个文件 onchange事件被触发
+function fileSelected()
+{
+    //DOM
+    let fbutton = document.querySelector<HTMLInputElement>(".filebutton");  
+    if (fbutton == null) throw new Error("fbutton con't be null!")
+    if (fbutton.files == null) throw new Error("fbutton.files con't be null!")
+    //fbutton.files可能一次选择了多个文件
+    let file = fbutton.files[0];  
+    //清空选择 
+    fbutton.value = "";  
+    let url = ""
+    let sm4Key = sessionStorage.getItem(TableName)
+    if (sm4Key == null) throw new Error("Please register SM4 key first")
+    //开始上传
+    encFileSm4(url, file, sm4Key);   
+}
 
